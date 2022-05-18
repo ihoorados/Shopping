@@ -17,6 +17,8 @@
 		70B765D42835955900605F28 /* ShoppingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765D32835955900605F28 /* ShoppingTests.swift */; };
 		70B765DE2835955900605F28 /* ShoppingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765DD2835955900605F28 /* ShoppingUITests.swift */; };
 		70B765E02835955900605F28 /* ShoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765DF2835955900605F28 /* ShoppingUITestsLaunchTests.swift */; };
+		70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765ED28359D2900605F28 /* AppCoordinator.swift */; };
+		70B765F128359D5300605F28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765F028359D5300605F28 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		70B765D92835955900605F28 /* ShoppingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765DD2835955900605F28 /* ShoppingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingUITests.swift; sourceTree = "<group>"; };
 		70B765DF2835955900605F28 /* ShoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70B765ED28359D2900605F28 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		70B765F028359D5300605F28 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 		70B765B82835955700605F28 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
+				70B765EF28359D3A00605F28 /* Scene */,
+				70B765EC28359D1500605F28 /* Coordinator */,
 				70B765B92835955700605F28 /* AppDelegate.swift */,
 				70B765BB2835955700605F28 /* SceneDelegate.swift */,
 				70B765BD2835955700605F28 /* ViewController.swift */,
@@ -128,6 +134,22 @@
 				70B765DF2835955900605F28 /* ShoppingUITestsLaunchTests.swift */,
 			);
 			path = ShoppingUITests;
+			sourceTree = "<group>";
+		};
+		70B765EC28359D1500605F28 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				70B765ED28359D2900605F28 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		70B765EF28359D3A00605F28 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				70B765F028359D5300605F28 /* HomeViewController.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +285,10 @@
 			files = (
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
 				70B765C42835955700605F28 /* Shopping.xcdatamodeld in Sources */,
+				70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */,
 				70B765BA2835955700605F28 /* AppDelegate.swift in Sources */,
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
+				70B765F128359D5300605F28 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
