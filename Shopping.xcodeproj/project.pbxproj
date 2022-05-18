@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70611F1B2835A43D003F60A4 /* CoreNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F1A2835A43D003F60A4 /* CoreNetworkService.swift */; };
+		70611F1D2835A45C003F60A4 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F1C2835A45C003F60A4 /* NetworkError.swift */; };
+		70611F1F2835A481003F60A4 /* NetworkEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F1E2835A481003F60A4 /* NetworkEndPoint.swift */; };
+		70611F212835A5EA003F60A4 /* ServerEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F202835A5EA003F60A4 /* ServerEndPoint.swift */; };
+		70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */; };
+		70611F252835A67F003F60A4 /* URLSessionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */; };
+		70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F262835A6AF003F60A4 /* NetworkTools.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -19,6 +26,7 @@
 		70B765E02835955900605F28 /* ShoppingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765DF2835955900605F28 /* ShoppingUITestsLaunchTests.swift */; };
 		70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765ED28359D2900605F28 /* AppCoordinator.swift */; };
 		70B765F128359D5300605F28 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765F028359D5300605F28 /* HomeViewController.swift */; };
+		8176FC028DEEBB2E22DB21CB /* Pods_Shopping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59779A8E8C51000CC4568EC /* Pods_Shopping.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70611F1A2835A43D003F60A4 /* CoreNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNetworkService.swift; sourceTree = "<group>"; };
+		70611F1C2835A45C003F60A4 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		70611F1E2835A481003F60A4 /* NetworkEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPoint.swift; sourceTree = "<group>"; };
+		70611F202835A5EA003F60A4 /* ServerEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerEndPoint.swift; sourceTree = "<group>"; };
+		70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceImpl.swift; sourceTree = "<group>"; };
+		70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceImpl.swift; sourceTree = "<group>"; };
+		70611F262835A6AF003F60A4 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +70,9 @@
 		70B765DF2835955900605F28 /* ShoppingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		70B765ED28359D2900605F28 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		70B765F028359D5300605F28 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A59779A8E8C51000CC4568EC /* Pods_Shopping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB0F8A7AB77E24E09F4F1E2 /* Pods-Shopping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping.debug.xcconfig"; path = "Target Support Files/Pods-Shopping/Pods-Shopping.debug.xcconfig"; sourceTree = "<group>"; };
+		F39FBA1199D9F9E574BE0979 /* Pods-Shopping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopping.release.xcconfig"; path = "Target Support Files/Pods-Shopping/Pods-Shopping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8176FC028DEEBB2E22DB21CB /* Pods_Shopping.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +101,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70611F192835A427003F60A4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				70611F1A2835A43D003F60A4 /* CoreNetworkService.swift */,
+				70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */,
+				70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */,
+				70611F1C2835A45C003F60A4 /* NetworkError.swift */,
+				70611F1E2835A481003F60A4 /* NetworkEndPoint.swift */,
+				70611F202835A5EA003F60A4 /* ServerEndPoint.swift */,
+				70611F262835A6AF003F60A4 /* NetworkTools.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		70B765AD2835955700605F28 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +122,8 @@
 				70B765D22835955900605F28 /* ShoppingTests */,
 				70B765DC2835955900605F28 /* ShoppingUITests */,
 				70B765B72835955700605F28 /* Products */,
+				B24C23540C8A1819C1BD9F59 /* Pods */,
+				9F7620E7BFEF7639FC92051C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +140,7 @@
 		70B765B82835955700605F28 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
+				70611F192835A427003F60A4 /* Network */,
 				70B765EF28359D3A00605F28 /* Scene */,
 				70B765EC28359D1500605F28 /* Coordinator */,
 				70B765B92835955700605F28 /* AppDelegate.swift */,
@@ -152,6 +188,23 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		9F7620E7BFEF7639FC92051C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A59779A8E8C51000CC4568EC /* Pods_Shopping.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B24C23540C8A1819C1BD9F59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFB0F8A7AB77E24E09F4F1E2 /* Pods-Shopping.debug.xcconfig */,
+				F39FBA1199D9F9E574BE0979 /* Pods-Shopping.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70B765E32835955900605F28 /* Build configuration list for PBXNativeTarget "Shopping" */;
 			buildPhases = (
+				D120EA02E4CF17B6B36B7134 /* [CP] Check Pods Manifest.lock */,
 				70B765B22835955700605F28 /* Sources */,
 				70B765B32835955700605F28 /* Frameworks */,
 				70B765B42835955700605F28 /* Resources */,
+				78B25AEDE225C6CC001B77D6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -278,16 +333,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		78B25AEDE225C6CC001B77D6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shopping/Pods-Shopping-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Shopping/Pods-Shopping-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Shopping/Pods-Shopping-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D120EA02E4CF17B6B36B7134 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shopping-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		70B765B22835955700605F28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70611F1F2835A481003F60A4 /* NetworkEndPoint.swift in Sources */,
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
+				70611F1D2835A45C003F60A4 /* NetworkError.swift in Sources */,
 				70B765C42835955700605F28 /* Shopping.xcdatamodeld in Sources */,
+				70611F252835A67F003F60A4 /* URLSessionServiceImpl.swift in Sources */,
+				70611F1B2835A43D003F60A4 /* CoreNetworkService.swift in Sources */,
+				70611F212835A5EA003F60A4 /* ServerEndPoint.swift in Sources */,
+				70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */,
 				70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */,
 				70B765BA2835955700605F28 /* AppDelegate.swift in Sources */,
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
+				70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */,
 				70B765F128359D5300605F28 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +564,7 @@
 		};
 		70B765E42835955900605F28 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFB0F8A7AB77E24E09F4F1E2 /* Pods-Shopping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -487,6 +592,7 @@
 		};
 		70B765E52835955900605F28 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F39FBA1199D9F9E574BE0979 /* Pods-Shopping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
