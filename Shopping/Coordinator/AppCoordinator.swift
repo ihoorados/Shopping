@@ -23,7 +23,9 @@ final class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let viewController = HomeViewController()
+
+        let viewModel = HomeViewModelImpl()
+        let viewController = HomeViewController(viewModel: viewModel)
         navigationController.viewControllers = [viewController]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

@@ -14,6 +14,11 @@
 		70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */; };
 		70611F252835A67F003F60A4 /* URLSessionServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */; };
 		70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F262835A6AF003F60A4 /* NetworkTools.swift */; };
+		70611F2A2835AACC003F60A4 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F292835AACC003F60A4 /* HomeUseCase.swift */; };
+		70611F2C2835AAED003F60A4 /* HomeUseCaseFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F2B2835AAED003F60A4 /* HomeUseCaseFlow.swift */; };
+		70611F2F2835AB20003F60A4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F2E2835AB20003F60A4 /* HomeRouter.swift */; };
+		70611F352835AC01003F60A4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F342835AC01003F60A4 /* HomeViewModel.swift */; };
+		70611F372835AC97003F60A4 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F362835AC97003F60A4 /* Space.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -54,6 +59,11 @@
 		70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServiceImpl.swift; sourceTree = "<group>"; };
 		70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionServiceImpl.swift; sourceTree = "<group>"; };
 		70611F262835A6AF003F60A4 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		70611F292835AACC003F60A4 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
+		70611F2B2835AAED003F60A4 /* HomeUseCaseFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCaseFlow.swift; sourceTree = "<group>"; };
+		70611F2E2835AB20003F60A4 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		70611F342835AC01003F60A4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		70611F362835AC97003F60A4 /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +125,56 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		70611F282835A976003F60A4 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				70611F292835AACC003F60A4 /* HomeUseCase.swift */,
+				70611F2B2835AAED003F60A4 /* HomeUseCaseFlow.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		70611F2D2835AB11003F60A4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				70611F2E2835AB20003F60A4 /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		70611F302835ABDD003F60A4 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				70611F332835ABEC003F60A4 /* ViewModel */,
+				70611F322835ABE8003F60A4 /* View */,
+				70611F312835ABE4003F60A4 /* Model */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		70611F312835ABE4003F60A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70611F322835ABE8003F60A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				70B765F028359D5300605F28 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		70611F332835ABEC003F60A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70611F342835AC01003F60A4 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		70B765AD2835955700605F28 = {
 			isa = PBXGroup;
 			children = (
@@ -141,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				70611F192835A427003F60A4 /* Network */,
-				70B765EF28359D3A00605F28 /* Scene */,
+				70B765EF28359D3A00605F28 /* Main Feature */,
 				70B765EC28359D1500605F28 /* Coordinator */,
 				70B765B92835955700605F28 /* AppDelegate.swift */,
 				70B765BB2835955700605F28 /* SceneDelegate.swift */,
@@ -180,12 +240,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		70B765EF28359D3A00605F28 /* Scene */ = {
+		70B765EF28359D3A00605F28 /* Main Feature */ = {
 			isa = PBXGroup;
 			children = (
-				70B765F028359D5300605F28 /* HomeViewController.swift */,
+				70611F302835ABDD003F60A4 /* Presentation */,
+				70611F2D2835AB11003F60A4 /* Router */,
+				70611F282835A976003F60A4 /* Domain */,
+				70611F362835AC97003F60A4 /* Space.swift */,
 			);
-			path = Scene;
+			path = "Main Feature";
 			sourceTree = "<group>";
 		};
 		9F7620E7BFEF7639FC92051C /* Frameworks */ = {
@@ -380,16 +443,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70611F352835AC01003F60A4 /* HomeViewModel.swift in Sources */,
 				70611F1F2835A481003F60A4 /* NetworkEndPoint.swift in Sources */,
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
 				70611F1D2835A45C003F60A4 /* NetworkError.swift in Sources */,
 				70B765C42835955700605F28 /* Shopping.xcdatamodeld in Sources */,
 				70611F252835A67F003F60A4 /* URLSessionServiceImpl.swift in Sources */,
+				70611F2F2835AB20003F60A4 /* HomeRouter.swift in Sources */,
 				70611F1B2835A43D003F60A4 /* CoreNetworkService.swift in Sources */,
+				70611F372835AC97003F60A4 /* Space.swift in Sources */,
 				70611F212835A5EA003F60A4 /* ServerEndPoint.swift in Sources */,
 				70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */,
+				70611F2A2835AACC003F60A4 /* HomeUseCase.swift in Sources */,
 				70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */,
 				70B765BA2835955700605F28 /* AppDelegate.swift in Sources */,
+				70611F2C2835AAED003F60A4 /* HomeUseCaseFlow.swift in Sources */,
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
 				70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */,
 				70B765F128359D5300605F28 /* HomeViewController.swift in Sources */,
