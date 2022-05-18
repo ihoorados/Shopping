@@ -48,9 +48,9 @@ class HomeViewController: UIViewController {
     // MARK: User InterFace Properties
     /* ////////////////////////////////////////////////////////////////////// */
 
-    lazy var searchTextFeild: UITextField = {
+    lazy var searchTextFeild: UISearchBar = {
 
-        let textFeild = UITextField()
+        let textFeild = UISearchBar()
         return textFeild
     }()
 
