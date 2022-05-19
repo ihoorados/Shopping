@@ -15,16 +15,18 @@ struct ListModel {
     let price: String
     let image: String
 
-    static func parser(json:JSON) -> ListModel{
+    static func parser(json:JSON, category: String) -> ListModel{
 
-        let image: String = json["image"].string ?? ""
-        let price: Double = json["price"].double ?? 0.0
-        let name: String = json["name"].string ?? ""
+        let data: JSON = json[category]
+
+        let image: String = data["image"].string ?? ""
+        let price: Double = data["price"].double ?? 0.0
+        let name: String = data["name"].string ?? ""
         let doubleStr = String(format: "%.2f", price)
-        return ListModel(name: name, category: "Books", price: doubleStr, image: image)
+        return ListModel(name: name, category: category, price: doubleStr, image: image)
     }
 
-    static func parsArray(json: JSON) -> [ListModel]{
+    static func parsArray(json: JSON, category: String) -> [ListModel]{
 
         var array: [ListModel] = []
         guard let items = json.array else {
@@ -34,7 +36,7 @@ struct ListModel {
 
         for item in items{
 
-            array.append(ListModel.parser(json: item))
+            array.append(ListModel.parser(json: item, category: category))
         }
 
         return array

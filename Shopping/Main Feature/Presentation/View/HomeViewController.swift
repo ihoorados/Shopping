@@ -55,12 +55,41 @@ class HomeViewController: UIViewController {
     }()
 
     let cellIdentifire = "ListTableViewCell"
-    var resultTableView : UITableView = {
+    lazy var resultTableView : UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
+        tableView.sizeToFit()
+        tableView.rowHeight = 98.0
         return tableView
     }()
+
+    lazy var filterButton: UIButton = {
+
+        let button = UIButton(type: .custom)
+        button.setTitle("Filter", for: .normal)
+        button.setImage(UIImage.init(systemName: "line.horizontal.3.decrease.circle"), for: .normal)
+        button.setTitleColor(UIColor.darkText, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1.0
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 12.0)
+        return button
+    }()
+
+    lazy var sortButton: UIButton = {
+
+        let button = UIButton(type: .custom)
+        button.setTitle("Sort", for: .normal)
+        button.setImage(UIImage.init(systemName: "arrow.up.arrow.down"), for: .normal)
+        button.setTitleColor(UIColor.darkText, for: .normal)
+        button.layer.borderColor = UIColor.gray.cgColor
+        button.layer.borderWidth = 1.0
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 12.0)
+        return button
+    }()
+
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding View Model
@@ -84,6 +113,8 @@ class HomeViewController: UIViewController {
     fileprivate func setupUIView(){
 
         self.view.addSubview(searchBar)
+        self.view.addSubview(sortButton)
+        self.view.addSubview(filterButton)
         self.view.addSubview(resultTableView)
         self.searchBar.placeholder = "Search"
 
@@ -99,7 +130,23 @@ class HomeViewController: UIViewController {
                                     paddingLeft: 12.0,
                                     paddingRight: 12.0)
 
-        self.resultTableView.anchor(top: self.searchBar.bottomAnchor,
+        self.sortButton.anchor(top: self.searchBar.bottomAnchor,
+                               left: self.view.leftAnchor,
+                               paddingTop: 12.0,
+                               paddingLeft: 12.0,
+                               width: 100.0,
+                               height: 38.0,
+                               cornerRadius: 8.0)
+
+        self.filterButton.anchor(top: self.searchBar.bottomAnchor,
+                                 left: self.sortButton.rightAnchor,
+                                 paddingTop: 12.0,
+                                 paddingLeft: 12.0,
+                                 width: 100.0,
+                                 height: 38.0,
+                                 cornerRadius: 8.0)
+
+        self.resultTableView.anchor(top: self.filterButton.bottomAnchor,
                                     left: self.view.leftAnchor,
                                     bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
                                     right: self.view.rightAnchor,
@@ -132,6 +179,8 @@ extension HomeViewController: HomeUserInterface{
         self.setupUILayout()
         self.setupDependency()
         self.BindingViewModel()
+
+        self.viewModel.loadDataFromServer()
     }
 }
 

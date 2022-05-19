@@ -36,6 +36,16 @@ class HomeViewModelImpl{
         }
     }
 
+    fileprivate var viewModelSearchList: [ListTableViewModel] = []{
+
+        didSet{
+
+            self.tableViewDataSource.items = self.viewModelSearchList
+        }
+    }
+
+    fileprivate var dataModel: [ListModel] = []
+
     fileprivate var tableViewDataSource: TableViewDataSource<ListTableViewCell, ListTableViewModel>!
 
     /* ////////////////////////////////////////////////////////////////////// */
@@ -58,30 +68,36 @@ class HomeViewModelImpl{
 
     func searchBarTextUpdatedWith(text: String){
 
-        if text.isEmpty {
+        self.viewModelSearchList = []
+        self.reloadTabelView.value = true
+
+        guard !text.isEmpty else {
 
             self.viewModelList.removeAll()
-            self.reloadTabelView.value = true
-        }else{
-
-            self.repository.getBooks { result in
-
-                switch result{
-
-                    case .failure(let err):
-
-                        print("Faild")
-                    case .success(let list):
-
-                    var modelList: [ListTableViewModel] = []
-                    for item in list{
-                        modelList.append(ListTableViewModel(model: item))
-                    }
-                    self.viewModelList = modelList
-                    self.reloadTabelView.value = true
-                }
-            }
+            self.loadDataFromServer()
+            return
         }
+
+        let candiesFiltered = self.viewModelList.filter{$0.nameString == text}
+        self.viewModelSearchList = candiesFiltered
+        self.reloadTabelView.value = true
+    }
+
+    func loadDataFromServer(){
+
+        self.repository.getList { result in
+            self.handleRequestResult(result: result)
+        }
+
+//        self.repository.getBooks(text: "text") { result in
+//
+//            self.handleRequestResult(result: result)
+//        }
+
+//        self.repository.getSports { result in
+//
+//            self.handleRequestResult(result: result)
+//        }
     }
 
     // Table View Data Source
@@ -99,18 +115,21 @@ class HomeViewModelImpl{
     // MARK: Private Function
     /* ////////////////////////////////////////////////////////////////////// */
 
-    fileprivate func getMocklist(){
+    fileprivate func handleRequestResult(result:  Result<[ListModel], NetworkError>){
 
-        let model1 = ListModel(name: "Name 1", category: "Books", price: "234", image: "")
-        let model2 = ListModel(name: "Name 2", category: "Books", price: "334", image: "")
-        let model3 = ListModel(name: "Name 3", category: "Books", price: "144", image: "")
-        let model4 = ListModel(name: "Name 4", category: "Books", price: "37", image: "")
-        let model5 = ListModel(name: "Name 5", category: "Books", price: "44", image: "")
+        switch result{
 
-        self.viewModelList = [ListTableViewModel(model: model1),
-                              ListTableViewModel(model: model2),
-                              ListTableViewModel(model: model3),
-                              ListTableViewModel(model: model4),
-                              ListTableViewModel(model: model5)]
+            case .failure(let _):
+
+                print("Faild")
+            case .success(let list):
+
+            var modelList: [ListTableViewModel] = []
+            for item in list{
+                modelList.append(ListTableViewModel(model: item))
+            }
+            self.viewModelList.append(contentsOf: modelList)
+            self.reloadTabelView.value = true
+        }
     }
 }

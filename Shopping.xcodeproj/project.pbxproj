@@ -29,6 +29,7 @@
 		70611F4D2835D251003F60A4 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4C2835D251003F60A4 /* ListModel.swift */; };
 		70611F502835D6A1003F60A4 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4F2835D6A1003F60A4 /* BooksApi.swift */; };
 		70611F532835D775003F60A4 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F522835D775003F60A4 /* ListRepository.swift */; };
+		70611F5528369313003F60A4 /* SportsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F5428369313003F60A4 /* SportsApi.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -84,6 +85,7 @@
 		70611F4C2835D251003F60A4 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		70611F4F2835D6A1003F60A4 /* BooksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksApi.swift; sourceTree = "<group>"; };
 		70611F522835D775003F60A4 /* ListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
+		70611F5428369313003F60A4 /* SportsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsApi.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				70611F4F2835D6A1003F60A4 /* BooksApi.swift */,
+				70611F5428369313003F60A4 /* SportsApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				70611F2C2835AAED003F60A4 /* HomeUseCaseFlow.swift in Sources */,
 				70611F4B2835C687003F60A4 /* ListTableViewModel.swift in Sources */,
 				70611F3D2835C42E003F60A4 /* Observable.swift in Sources */,
+				70611F5528369313003F60A4 /* SportsApi.swift in Sources */,
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
 				70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */,
 				70B765F128359D5300605F28 /* HomeViewController.swift in Sources */,

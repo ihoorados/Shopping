@@ -1,26 +1,23 @@
 //
-//  BooksApi.swift
+//  SportsApi.swift
 //  Shopping
 //
-//  Created by Hoorad Ramezani on 19/5/2022.
+//  Created by Hoorad Ramezani on 20/5/2022.
 //
-
 
 import Foundation
 import Alamofire
 
-struct BooksApi: NetworkEndPoint {
+struct SportsApi: NetworkEndPoint {
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
 
-    init(server: ServerEndPint = .asia, text: String?) {
+    init(server: ServerEndPint = .asia) {
 
-        var url: String
         self.server = server
-        url = "https://categories-6305.restdb.io/rest/list"
-
+        let url = "https://categories-6305.restdb.io/rest/sports"
         self.url = url
     }
 
