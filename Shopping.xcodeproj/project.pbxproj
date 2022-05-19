@@ -21,6 +21,11 @@
 		70611F372835AC97003F60A4 /* Space.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F362835AC97003F60A4 /* Space.swift */; };
 		70611F3A2835BF28003F60A4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F392835BF28003F60A4 /* UIView+Extension.swift */; };
 		70611F3D2835C42E003F60A4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F3C2835C42E003F60A4 /* Observable.swift */; };
+		70611F402835C4B8003F60A4 /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F3F2835C4B8003F60A4 /* UITableViewDataSource.swift */; };
+		70611F422835C553003F60A4 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F412835C553003F60A4 /* BaseViewModel.swift */; };
+		70611F482835C647003F60A4 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F462835C647003F60A4 /* ListTableViewCell.swift */; };
+		70611F492835C647003F60A4 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70611F472835C647003F60A4 /* ListTableViewCell.xib */; };
+		70611F4B2835C687003F60A4 /* ListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4A2835C687003F60A4 /* ListTableViewModel.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -68,6 +73,11 @@
 		70611F362835AC97003F60A4 /* Space.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Space.swift; sourceTree = "<group>"; };
 		70611F392835BF28003F60A4 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		70611F3C2835C42E003F60A4 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		70611F3F2835C4B8003F60A4 /* UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewDataSource.swift; sourceTree = "<group>"; };
+		70611F412835C553003F60A4 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		70611F462835C647003F60A4 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		70611F472835C647003F60A4 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		70611F4A2835C687003F60A4 /* ListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewModel.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 		70611F322835ABE8003F60A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				70611F432835C596003F60A4 /* ListView */,
 				70B765F028359D5300605F28 /* HomeViewController.swift */,
 			);
 			path = View;
@@ -195,6 +206,25 @@
 			path = Binding;
 			sourceTree = "<group>";
 		};
+		70611F3E2835C4A5003F60A4 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				70611F3F2835C4B8003F60A4 /* UITableViewDataSource.swift */,
+				70611F412835C553003F60A4 /* BaseViewModel.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		70611F432835C596003F60A4 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				70611F462835C647003F60A4 /* ListTableViewCell.swift */,
+				70611F472835C647003F60A4 /* ListTableViewCell.xib */,
+				70611F4A2835C687003F60A4 /* ListTableViewModel.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
 		70B765AD2835955700605F28 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +250,7 @@
 		70B765B82835955700605F28 /* Shopping */ = {
 			isa = PBXGroup;
 			children = (
+				70611F3E2835C4A5003F60A4 /* Tools */,
 				70611F3B2835C421003F60A4 /* Binding */,
 				70611F382835BEF9003F60A4 /* Extension */,
 				70611F192835A427003F60A4 /* Network */,
@@ -397,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70B765C92835955900605F28 /* LaunchScreen.storyboard in Resources */,
+				70611F492835C647003F60A4 /* ListTableViewCell.xib in Resources */,
 				70B765C62835955900605F28 /* Assets.xcassets in Resources */,
 				70B765C12835955700605F28 /* Main.storyboard in Resources */,
 			);
@@ -466,6 +498,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				70611F352835AC01003F60A4 /* HomeViewModel.swift in Sources */,
+				70611F422835C553003F60A4 /* BaseViewModel.swift in Sources */,
+				70611F482835C647003F60A4 /* ListTableViewCell.swift in Sources */,
+				70611F402835C4B8003F60A4 /* UITableViewDataSource.swift in Sources */,
 				70611F1F2835A481003F60A4 /* NetworkEndPoint.swift in Sources */,
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
 				70611F1D2835A45C003F60A4 /* NetworkError.swift in Sources */,
@@ -481,6 +516,7 @@
 				70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */,
 				70B765BA2835955700605F28 /* AppDelegate.swift in Sources */,
 				70611F2C2835AAED003F60A4 /* HomeUseCaseFlow.swift in Sources */,
+				70611F4B2835C687003F60A4 /* ListTableViewModel.swift in Sources */,
 				70611F3D2835C42E003F60A4 /* Observable.swift in Sources */,
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
 				70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */,
@@ -590,7 +626,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -644,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

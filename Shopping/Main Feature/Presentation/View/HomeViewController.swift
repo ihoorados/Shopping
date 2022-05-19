@@ -54,19 +54,28 @@ class HomeViewController: UIViewController {
         return searchBar
     }()
 
-    let cellIdentifire = "cellIdentifire"
-    var reportBoxCollectionView : UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 8.0
-        layout.minimumInteritemSpacing = 8.0
-        let CollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        CollectionView.translatesAutoresizingMaskIntoConstraints = false
-        CollectionView.showsVerticalScrollIndicator = false
-        CollectionView.showsHorizontalScrollIndicator = false
-        CollectionView.backgroundColor = .clear
-        return CollectionView
+    let cellIdentifire = "ListTableViewCell"
+    var resultTableView : UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear
+        return tableView
     }()
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Binding View Model
+    /* ////////////////////////////////////////////////////////////////////// */
+
+    fileprivate func BindingViewModel(){
+
+        self.viewModel.reloadTabelView.bind { reload in
+
+            if reload{
+
+                self.resultTableView.reloadData()
+            }
+        }
+    }
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Functions
@@ -75,7 +84,11 @@ class HomeViewController: UIViewController {
     fileprivate func setupUIView(){
 
         self.view.addSubview(searchBar)
+        self.view.addSubview(resultTableView)
         self.searchBar.placeholder = "Search"
+
+        self.resultTableView.register(UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ListTableViewCell.self))
+        self.resultTableView.dataSource = self.viewModel.getTabelViewDataSource(identifier: cellIdentifire)
     }
 
     fileprivate func setupUILayout(){
@@ -84,6 +97,15 @@ class HomeViewController: UIViewController {
                                     left: self.view.leftAnchor,
                                     right: self.view.rightAnchor,
                                     paddingLeft: 12.0,
+                                    paddingRight: 12.0)
+
+        self.resultTableView.anchor(top: self.searchBar.bottomAnchor,
+                                    left: self.view.leftAnchor,
+                                    bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
+                                    right: self.view.rightAnchor,
+                                    paddingTop: 12.0,
+                                    paddingLeft: 12.0,
+                                    paddingBottom: 0.0,
                                     paddingRight: 12.0)
     }
 
@@ -109,6 +131,7 @@ extension HomeViewController: HomeUserInterface{
         self.setupUIView()
         self.setupUILayout()
         self.setupDependency()
+        self.BindingViewModel()
     }
 }
 
@@ -120,7 +143,7 @@ extension HomeViewController: UISearchBarDelegate{
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        print(searchText)
+        self.viewModel.searchBarTextUpdatedWith(text: searchText)
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
