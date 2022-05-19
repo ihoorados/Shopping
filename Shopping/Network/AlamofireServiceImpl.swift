@@ -22,6 +22,9 @@ class AlamofireNetworkImpl: CoreNetworkService {
 
         var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         defaultHeaders["os"] = "iOS"
+        defaultHeaders["x-apikey"] = "9513a3c681bc11841e3ab249c8b59e438d693"
+        defaultHeaders["cache-control"] = "no-cache"
+
         configuration.httpAdditionalHeaders = defaultHeaders
         configuration.urlCache = nil
         self.Configuration = configuration

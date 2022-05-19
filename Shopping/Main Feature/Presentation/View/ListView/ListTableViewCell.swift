@@ -38,7 +38,14 @@ class ListTableViewCell: UITableViewCell {
     // Update UI
     fileprivate func updateUI(){
 
-        self.titleLabel.text = viewModel?.title
+        guard let viewModel = viewModel else {
+            return
+        }
+        self.titleLabel.text = viewModel.nameString
+        self.categoryLabel.text = viewModel.categoryStiring
+        self.priceLabel.text = "\(viewModel.priceStiring) $"
+        self.coverImageView.backgroundColor = .purple
+        self.coverImageView.layer.cornerRadius = 8
     }
     
 }

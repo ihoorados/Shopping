@@ -14,9 +14,9 @@ class ListTableViewModel: BaseViewModel {
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
 
-    var model: String
+    var model: ListModel
 
-    init(model: String) {
+    init(model: ListModel) {
 
         self.model = model
 
@@ -27,32 +27,33 @@ class ListTableViewModel: BaseViewModel {
     // MARK: Observable Properties
     /* ////////////////////////////////////////////////////////////////////// */
 
+    var name: Dynamic<String> = Dynamic<String>("")
+    var price: Dynamic<String> = Dynamic<String>("")
+    var category: Dynamic<String> = Dynamic<String>("")
     var image: Dynamic<UIImage> = Dynamic<UIImage>(UIImage())
-    var isRead: Dynamic<Bool> = Dynamic<Bool>(false)
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Public Propeties
     /* ////////////////////////////////////////////////////////////////////// */
 
-    // MARK: Public
-    var title: String{
-
-        return self.model
-    }
-
     var nameString: String{
 
-        return self.model
+        return self.model.name
     }
 
     var categoryStiring: String{
 
-        return self.model
+        return self.model.category
     }
 
     var priceStiring: String{
 
-        return self.model
+        return self.model.price
+    }
+
+    var imageStiring: String{
+
+        return self.model.image
     }
 
 }

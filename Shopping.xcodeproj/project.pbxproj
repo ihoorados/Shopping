@@ -26,6 +26,9 @@
 		70611F482835C647003F60A4 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F462835C647003F60A4 /* ListTableViewCell.swift */; };
 		70611F492835C647003F60A4 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70611F472835C647003F60A4 /* ListTableViewCell.xib */; };
 		70611F4B2835C687003F60A4 /* ListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4A2835C687003F60A4 /* ListTableViewModel.swift */; };
+		70611F4D2835D251003F60A4 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4C2835D251003F60A4 /* ListModel.swift */; };
+		70611F502835D6A1003F60A4 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4F2835D6A1003F60A4 /* BooksApi.swift */; };
+		70611F532835D775003F60A4 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F522835D775003F60A4 /* ListRepository.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -78,6 +81,9 @@
 		70611F462835C647003F60A4 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		70611F472835C647003F60A4 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		70611F4A2835C687003F60A4 /* ListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewModel.swift; sourceTree = "<group>"; };
+		70611F4C2835D251003F60A4 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		70611F4F2835D6A1003F60A4 /* BooksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksApi.swift; sourceTree = "<group>"; };
+		70611F522835D775003F60A4 /* ListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		70611F192835A427003F60A4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				70611F512835D763003F60A4 /* Repository */,
+				70611F4E2835D68E003F60A4 /* API */,
 				70611F1A2835A43D003F60A4 /* CoreNetworkService.swift */,
 				70611F222835A629003F60A4 /* AlamofireServiceImpl.swift */,
 				70611F242835A67F003F60A4 /* URLSessionServiceImpl.swift */,
@@ -169,6 +177,7 @@
 		70611F312835ABE4003F60A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				70611F4C2835D251003F60A4 /* ListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +232,22 @@
 				70611F4A2835C687003F60A4 /* ListTableViewModel.swift */,
 			);
 			path = ListView;
+			sourceTree = "<group>";
+		};
+		70611F4E2835D68E003F60A4 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				70611F4F2835D6A1003F60A4 /* BooksApi.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		70611F512835D763003F60A4 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				70611F522835D775003F60A4 /* ListRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		70B765AD2835955700605F28 = {
@@ -500,6 +525,7 @@
 				70611F352835AC01003F60A4 /* HomeViewModel.swift in Sources */,
 				70611F422835C553003F60A4 /* BaseViewModel.swift in Sources */,
 				70611F482835C647003F60A4 /* ListTableViewCell.swift in Sources */,
+				70611F502835D6A1003F60A4 /* BooksApi.swift in Sources */,
 				70611F402835C4B8003F60A4 /* UITableViewDataSource.swift in Sources */,
 				70611F1F2835A481003F60A4 /* NetworkEndPoint.swift in Sources */,
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
@@ -509,6 +535,7 @@
 				70611F2F2835AB20003F60A4 /* HomeRouter.swift in Sources */,
 				70611F1B2835A43D003F60A4 /* CoreNetworkService.swift in Sources */,
 				70611F372835AC97003F60A4 /* Space.swift in Sources */,
+				70611F532835D775003F60A4 /* ListRepository.swift in Sources */,
 				70611F212835A5EA003F60A4 /* ServerEndPoint.swift in Sources */,
 				70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */,
 				70611F2A2835AACC003F60A4 /* HomeUseCase.swift in Sources */,
@@ -521,6 +548,7 @@
 				70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */,
 				70611F272835A6AF003F60A4 /* NetworkTools.swift in Sources */,
 				70B765F128359D5300605F28 /* HomeViewController.swift in Sources */,
+				70611F4D2835D251003F60A4 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

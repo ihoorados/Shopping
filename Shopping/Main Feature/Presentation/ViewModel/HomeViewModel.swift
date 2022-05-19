@@ -11,14 +11,22 @@ import UIKit
 
 class HomeViewModelImpl{
 
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Dependency Injection
+    /* ////////////////////////////////////////////////////////////////////// */
 
-    init(){
+    let repository: ListRepository = ListRepositoryImpl()
 
-
-    }
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Public Properties
+    /* ////////////////////////////////////////////////////////////////////// */
 
     var space: Shopping?
     weak var homeUIDelegate: HomeUserInterface?
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Private Properties
+    /* ////////////////////////////////////////////////////////////////////// */
 
     fileprivate var viewModelList: [ListTableViewModel] = []{
 
@@ -30,8 +38,15 @@ class HomeViewModelImpl{
 
     fileprivate var tableViewDataSource: TableViewDataSource<ListTableViewCell, ListTableViewModel>!
 
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Binding Properties
+    /* ////////////////////////////////////////////////////////////////////// */
+
     var reloadTabelView: Dynamic<Bool> = Dynamic<Bool>(false)
 
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Public Function
+    /* ////////////////////////////////////////////////////////////////////// */
 
     /// Start NMapSpace
     func startHomeSpace(host: HomeViewController){
@@ -41,27 +56,32 @@ class HomeViewModelImpl{
         space = Shopping.startSpace(delegate: router)
     }
 
-
-
     func searchBarTextUpdatedWith(text: String){
 
         if text.isEmpty {
 
             self.viewModelList.removeAll()
+            self.reloadTabelView.value = true
         }else{
 
-            self.getMocklist()
+            self.repository.getBooks { result in
+
+                switch result{
+
+                    case .failure(let err):
+
+                        print("Faild")
+                    case .success(let list):
+
+                    var modelList: [ListTableViewModel] = []
+                    for item in list{
+                        modelList.append(ListTableViewModel(model: item))
+                    }
+                    self.viewModelList = modelList
+                    self.reloadTabelView.value = true
+                }
+            }
         }
-        self.reloadTabelView.value = true
-    }
-
-    
-    func getMocklist(){
-
-        self.viewModelList = [ListTableViewModel(model: "Product 1 Product 1 Product 1 Product 1 Product 1 Product 1"),
-                              ListTableViewModel(model: "Product 2"),
-                              ListTableViewModel(model: "Product 3"),
-                              ListTableViewModel(model: "Product 4")]
     }
 
     // Table View Data Source
@@ -73,5 +93,24 @@ class HomeViewModelImpl{
         })
 
         return self.tableViewDataSource
+    }
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Private Function
+    /* ////////////////////////////////////////////////////////////////////// */
+
+    fileprivate func getMocklist(){
+
+        let model1 = ListModel(name: "Name 1", category: "Books", price: "234", image: "")
+        let model2 = ListModel(name: "Name 2", category: "Books", price: "334", image: "")
+        let model3 = ListModel(name: "Name 3", category: "Books", price: "144", image: "")
+        let model4 = ListModel(name: "Name 4", category: "Books", price: "37", image: "")
+        let model5 = ListModel(name: "Name 5", category: "Books", price: "44", image: "")
+
+        self.viewModelList = [ListTableViewModel(model: model1),
+                              ListTableViewModel(model: model2),
+                              ListTableViewModel(model: model3),
+                              ListTableViewModel(model: model4),
+                              ListTableViewModel(model: model5)]
     }
 }
