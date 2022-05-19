@@ -30,6 +30,11 @@
 		70611F502835D6A1003F60A4 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F4F2835D6A1003F60A4 /* BooksApi.swift */; };
 		70611F532835D775003F60A4 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F522835D775003F60A4 /* ListRepository.swift */; };
 		70611F5528369313003F60A4 /* SportsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F5428369313003F60A4 /* SportsApi.swift */; };
+		70611F592836FCB1003F60A4 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F582836FCB1003F60A4 /* FilterView.swift */; };
+		70611F5B2836FD43003F60A4 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70611F5A2836FD43003F60A4 /* FilterView.xib */; };
+		70611F5D2836FEAA003F60A4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F5C2836FEAA003F60A4 /* UIViewController+Extension.swift */; };
+		70611F6028370C48003F60A4 /* SortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70611F5F28370C48003F60A4 /* SortView.xib */; };
+		70611F6228370C55003F60A4 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70611F6128370C55003F60A4 /* SortView.swift */; };
 		70B765BA2835955700605F28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765B92835955700605F28 /* AppDelegate.swift */; };
 		70B765BC2835955700605F28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BB2835955700605F28 /* SceneDelegate.swift */; };
 		70B765BE2835955700605F28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B765BD2835955700605F28 /* ViewController.swift */; };
@@ -86,6 +91,11 @@
 		70611F4F2835D6A1003F60A4 /* BooksApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksApi.swift; sourceTree = "<group>"; };
 		70611F522835D775003F60A4 /* ListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRepository.swift; sourceTree = "<group>"; };
 		70611F5428369313003F60A4 /* SportsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsApi.swift; sourceTree = "<group>"; };
+		70611F582836FCB1003F60A4 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		70611F5A2836FD43003F60A4 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
+		70611F5C2836FEAA003F60A4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		70611F5F28370C48003F60A4 /* SortView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortView.xib; sourceTree = "<group>"; };
+		70611F6128370C55003F60A4 /* SortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
 		70B765B62835955700605F28 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B765B92835955700605F28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B765BB2835955700605F28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,9 +179,9 @@
 		70611F302835ABDD003F60A4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				70611F332835ABEC003F60A4 /* ViewModel */,
-				70611F322835ABE8003F60A4 /* View */,
-				70611F312835ABE4003F60A4 /* Model */,
+				70611F5E28370C34003F60A4 /* Sort */,
+				70611F572836FC79003F60A4 /* Filter */,
+				70611F562836FC70003F60A4 /* Main */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -205,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				70611F392835BF28003F60A4 /* UIView+Extension.swift */,
+				70611F5C2836FEAA003F60A4 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,6 +262,34 @@
 				70611F522835D775003F60A4 /* ListRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		70611F562836FC70003F60A4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				70611F332835ABEC003F60A4 /* ViewModel */,
+				70611F322835ABE8003F60A4 /* View */,
+				70611F312835ABE4003F60A4 /* Model */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		70611F572836FC79003F60A4 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				70611F582836FCB1003F60A4 /* FilterView.swift */,
+				70611F5A2836FD43003F60A4 /* FilterView.xib */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		70611F5E28370C34003F60A4 /* Sort */ = {
+			isa = PBXGroup;
+			children = (
+				70611F5F28370C48003F60A4 /* SortView.xib */,
+				70611F6128370C55003F60A4 /* SortView.swift */,
+			);
+			path = Sort;
 			sourceTree = "<group>";
 		};
 		70B765AD2835955700605F28 = {
@@ -455,6 +494,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70611F6028370C48003F60A4 /* SortView.xib in Resources */,
+				70611F5B2836FD43003F60A4 /* FilterView.xib in Resources */,
 				70B765C92835955900605F28 /* LaunchScreen.storyboard in Resources */,
 				70611F492835C647003F60A4 /* ListTableViewCell.xib in Resources */,
 				70B765C62835955900605F28 /* Assets.xcassets in Resources */,
@@ -534,6 +575,7 @@
 				70B765BE2835955700605F28 /* ViewController.swift in Sources */,
 				70611F1D2835A45C003F60A4 /* NetworkError.swift in Sources */,
 				70B765C42835955700605F28 /* Shopping.xcdatamodeld in Sources */,
+				70611F592836FCB1003F60A4 /* FilterView.swift in Sources */,
 				70611F252835A67F003F60A4 /* URLSessionServiceImpl.swift in Sources */,
 				70611F2F2835AB20003F60A4 /* HomeRouter.swift in Sources */,
 				70611F1B2835A43D003F60A4 /* CoreNetworkService.swift in Sources */,
@@ -542,10 +584,12 @@
 				70611F212835A5EA003F60A4 /* ServerEndPoint.swift in Sources */,
 				70611F232835A629003F60A4 /* AlamofireServiceImpl.swift in Sources */,
 				70611F2A2835AACC003F60A4 /* HomeUseCase.swift in Sources */,
+				70611F5D2836FEAA003F60A4 /* UIViewController+Extension.swift in Sources */,
 				70611F3A2835BF28003F60A4 /* UIView+Extension.swift in Sources */,
 				70B765EE28359D2900605F28 /* AppCoordinator.swift in Sources */,
 				70B765BA2835955700605F28 /* AppDelegate.swift in Sources */,
 				70611F2C2835AAED003F60A4 /* HomeUseCaseFlow.swift in Sources */,
+				70611F6228370C55003F60A4 /* SortView.swift in Sources */,
 				70611F4B2835C687003F60A4 /* ListTableViewModel.swift in Sources */,
 				70611F3D2835C42E003F60A4 /* Observable.swift in Sources */,
 				70611F5528369313003F60A4 /* SportsApi.swift in Sources */,

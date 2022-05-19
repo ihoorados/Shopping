@@ -90,7 +90,6 @@ class HomeViewController: UIViewController {
         return button
     }()
 
-
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding View Model
     /* ////////////////////////////////////////////////////////////////////// */
@@ -161,6 +160,25 @@ class HomeViewController: UIViewController {
         self.searchBar.delegate = self
     }
 
+    fileprivate func setupUIEvent(){
+
+        self.filterButton.addTarget(self, action: #selector(self.filterButtonAction), for: .touchUpInside)
+        self.sortButton.addTarget(self, action: #selector(self.sortButtonAction), for: .touchUpInside)
+
+    }
+
+    @objc func filterButtonAction(){
+
+        let view = FilterView(frame: self.view.frame)
+        self.addViewToViewController(view: view, navigation: .top)
+    }
+
+    @objc func sortButtonAction(){
+
+        let view = SortView(frame: self.view.frame)
+        self.addViewToViewController(view: view, navigation: .top)
+    }
+
 }
 
 /* ////////////////////////////////////////////////////////////////////// */
@@ -177,6 +195,7 @@ extension HomeViewController: HomeUserInterface{
         self.view.backgroundColor = .systemBackground
         self.setupUIView()
         self.setupUILayout()
+        self.setupUIEvent()
         self.setupDependency()
         self.BindingViewModel()
 
@@ -199,6 +218,7 @@ extension HomeViewController: UISearchBarDelegate{
 
         self.searchBar.resignFirstResponder()
         self.searchBar.text = ""
+        self.viewModel.loadDataFromServer()
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
