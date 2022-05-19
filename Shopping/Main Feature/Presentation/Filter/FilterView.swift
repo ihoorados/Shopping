@@ -33,6 +33,14 @@ class FilterView: UIView {
     @IBOutlet weak var removeUIControll:UIControl!
     @IBOutlet weak var baseView:UIView!
 
+    @IBOutlet weak var filterBooksSwitch: UISwitch!
+    @IBOutlet weak var filterSportSwitch: UISwitch!
+    @IBOutlet weak var filterMusicSwitch: UISwitch!
+    @IBOutlet weak var filterTravelSwitch: UISwitch!
+    @IBOutlet weak var filterElectronicsSwitch: UISwitch!
+    @IBOutlet weak var filterOtherSwitch: UISwitch!
+
+
     /// Init setup
     fileprivate func initSetup(){
 

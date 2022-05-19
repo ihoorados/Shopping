@@ -34,6 +34,10 @@ class SortView: UIView {
     @IBOutlet weak var removeUIControll:UIControl!
     @IBOutlet weak var baseView:UIView!
 
+    @IBOutlet weak var sortNameSwitch: UISwitch!
+    @IBOutlet weak var sortPriceSwitch: UISwitch!
+
+
     /// Init setup
     fileprivate func initSetup(){
 

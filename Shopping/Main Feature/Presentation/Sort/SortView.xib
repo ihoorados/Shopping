@@ -26,7 +26,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HFE-CY-fCX">
-                    <rect key="frame" x="0.0" y="646" width="414" height="250"/>
+                    <rect key="frame" x="0.0" y="676" width="414" height="220"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort item" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X84-1W-cvq">
                             <rect key="frame" x="12" y="16" width="390" height="40"/>
@@ -38,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="iTr-Bp-rXa">
-                            <rect key="frame" x="12" y="68" width="390" height="150"/>
+                            <rect key="frame" x="12" y="68" width="390" height="120"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6Y-pR-e2t">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
@@ -87,7 +87,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wl-xi-qDR">
-                                    <rect key="frame" x="0.0" y="96" width="390" height="54"/>
+                                    <rect key="frame" x="0.0" y="96" width="390" height="24"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
@@ -102,7 +102,7 @@
                         <constraint firstAttribute="trailing" secondItem="X84-1W-cvq" secondAttribute="trailing" constant="12" id="PVq-qK-cJE"/>
                         <constraint firstAttribute="bottom" secondItem="iTr-Bp-rXa" secondAttribute="bottom" constant="32" id="QNH-UZ-BVW"/>
                         <constraint firstItem="X84-1W-cvq" firstAttribute="top" secondItem="HFE-CY-fCX" secondAttribute="top" constant="16" id="cUL-8N-KCr"/>
-                        <constraint firstAttribute="height" constant="250" id="eJi-Qn-vL8"/>
+                        <constraint firstAttribute="height" constant="220" id="eJi-Qn-vL8"/>
                     </constraints>
                 </view>
             </subviews>
