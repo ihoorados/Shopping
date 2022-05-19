@@ -54,6 +54,20 @@ class HomeViewController: UIViewController {
         return searchBar
     }()
 
+    let cellIdentifire = "cellIdentifire"
+    var reportBoxCollectionView : UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 8.0
+        layout.minimumInteritemSpacing = 8.0
+        let CollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        CollectionView.translatesAutoresizingMaskIntoConstraints = false
+        CollectionView.showsVerticalScrollIndicator = false
+        CollectionView.showsHorizontalScrollIndicator = false
+        CollectionView.backgroundColor = .clear
+        return CollectionView
+    }()
+
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Functions
     /* ////////////////////////////////////////////////////////////////////// */
@@ -80,7 +94,6 @@ class HomeViewController: UIViewController {
 
 }
 
-
 /* ////////////////////////////////////////////////////////////////////// */
 // MARK: Home User Interface
 /* ////////////////////////////////////////////////////////////////////// */
@@ -99,6 +112,9 @@ extension HomeViewController: HomeUserInterface{
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: Home User Interface
+/* ////////////////////////////////////////////////////////////////////// */
 
 extension HomeViewController: UISearchBarDelegate{
 
