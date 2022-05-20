@@ -170,6 +170,8 @@ class HomeViewController: UIViewController {
     @objc func filterButtonAction(){
 
         let view = FilterView(frame: self.view.frame)
+        view.delegate = self
+        view.updateSwitch(categories: self.viewModel.filterCategoriesModel)
         self.addViewToViewController(view: view, navigation: .top)
     }
 
@@ -231,5 +233,17 @@ extension HomeViewController: UISearchBarDelegate{
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.searchBar.setShowsCancelButton(false, animated: false)
+    }
+}
+
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: FilterView OutPut
+/* ////////////////////////////////////////////////////////////////////// */
+
+extension HomeViewController: FilterViewOutput{
+
+    func filterDataBy(category: Categories, value: Bool) {
+
+        self.viewModel.filterDataBy(category: category, value: value)
     }
 }

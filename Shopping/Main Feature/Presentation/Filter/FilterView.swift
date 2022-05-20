@@ -7,11 +7,23 @@
 
 import UIKit
 
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: FilterView Output
+/* ////////////////////////////////////////////////////////////////////// */
+
+protocol FilterViewOutput: AnyObject {
+
+    func filterDataBy(category: Categories, value: Bool)
+}
+
+
 class FilterView: UIView {
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
+
+    weak var delegate: FilterViewOutput?
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -40,6 +52,9 @@ class FilterView: UIView {
     @IBOutlet weak var filterElectronicsSwitch: UISwitch!
     @IBOutlet weak var filterOtherSwitch: UISwitch!
 
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Private Functions
+    /* ////////////////////////////////////////////////////////////////////// */
 
     /// Init setup
     fileprivate func initSetup(){
@@ -77,6 +92,79 @@ class FilterView: UIView {
     fileprivate func setupUIEvent(){
 
         self.removeUIControll.addTarget(self, action: #selector(self.removeUIControllAction), for: .touchUpInside)
+    }
+
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Public Functions
+    /* ////////////////////////////////////////////////////////////////////// */
+
+    func updateSwitch(categories: [Categories]){
+
+        categories.forEach { category in
+
+            switch category {
+            case .books:
+
+                self.filterBooksSwitch.setOn(true, animated: true)
+                break
+            case .music:
+
+                self.filterMusicSwitch.setOn(true, animated: true)
+                break
+            case .sport:
+
+                self.filterSportSwitch.setOn(true, animated: true)
+                break
+            case .travel:
+
+                self.filterTravelSwitch.setOn(true, animated: true)
+                break
+            case .electronics:
+
+                self.filterElectronicsSwitch.setOn(true, animated: true)
+                break
+            default:
+
+                self.filterOtherSwitch.setOn(true, animated: true)
+                break
+            }
+        }
+    }
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: UIEvent
+    /* ////////////////////////////////////////////////////////////////////// */
+
+    // Switch Action
+    @IBAction func switchsAction(_ sender: UIButton) {
+
+        switch sender {
+        case self.filterBooksSwitch:
+
+            self.delegate?.filterDataBy(category: .books, value: self.filterBooksSwitch.isOn)
+            break
+        case self.filterMusicSwitch:
+
+            self.delegate?.filterDataBy(category: .music, value: self.filterMusicSwitch.isOn)
+            break
+        case self.filterSportSwitch:
+
+            self.delegate?.filterDataBy(category: .sport, value: self.filterSportSwitch.isOn)
+            break
+        case self.filterTravelSwitch:
+
+            self.delegate?.filterDataBy(category: .travel, value: self.filterTravelSwitch.isOn)
+            break
+        case self.filterElectronicsSwitch:
+
+            self.delegate?.filterDataBy(category: .electronics, value: self.filterElectronicsSwitch.isOn)
+            break
+        default:
+
+            self.delegate?.filterDataBy(category: .other, value: self.filterOtherSwitch.isOn)
+            break
+        }
     }
 
     @objc func removeUIControllAction(_ sender: Any){

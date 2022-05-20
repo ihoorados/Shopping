@@ -8,11 +8,17 @@
 import Foundation
 
 enum Categories : String{
-    
-    case Books = "Books"
-    case Sport = "Sport"
-    case Music = "Music"
-    case Travel = "Travel"
-    case Electronics = "Electronics"
-    case Other = "Other"
+
+    case books = "Books"
+    case sport = "Sport"
+    case music = "Music"
+    case travel = "Travel"
+    case electronics = "Electronics"
+    case other = "Other"
+}
+
+struct FilterModel {
+
+    var category: Categories
+    var value: Bool
 }

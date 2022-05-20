@@ -13,6 +13,12 @@
             <connections>
                 <outlet property="baseView" destination="Qxb-co-cE1" id="yeT-GF-uiU"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="6hv-am-j5p"/>
+                <outlet property="filterBooksSwitch" destination="TtI-FU-PQa" id="fLU-JE-2hJ"/>
+                <outlet property="filterElectronicsSwitch" destination="MBt-F8-Cag" id="dUb-Lr-Qtl"/>
+                <outlet property="filterMusicSwitch" destination="Hs4-qC-u5a" id="hWn-Cr-eVY"/>
+                <outlet property="filterOtherSwitch" destination="fZy-Jq-Hv8" id="MJv-wF-RBl"/>
+                <outlet property="filterSportSwitch" destination="1fx-id-fxf" id="E7F-jU-9aG"/>
+                <outlet property="filterTravelSwitch" destination="Dfq-U4-phh" id="zSI-OP-CKL"/>
                 <outlet property="removeUIControll" destination="Fj3-aH-fLk" id="KH7-eY-afj"/>
             </connections>
         </placeholder>
@@ -51,6 +57,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TtI-FU-PQa">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="bP3-DU-uq2"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="zDC-mr-QiZ"/>
@@ -74,6 +83,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MBt-F8-Cag">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="JRL-C4-NXP"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="fKM-zc-fBc"/>
@@ -97,6 +109,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dfq-U4-phh">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="bWe-i2-l73"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="cnf-bW-DOq"/>
@@ -120,6 +135,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hs4-qC-u5a">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="U5P-XV-Moa"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="nG6-Iu-Jmu"/>
@@ -143,6 +161,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1fx-id-fxf">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="Zp0-IR-UTC"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,6 +186,9 @@
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fZy-Jq-Hv8">
                                             <rect key="frame" x="329" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchsAction:" destination="-1" eventType="valueChanged" id="NJY-jb-E7q"/>
+                                            </connections>
                                         </switch>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="mAk-eB-S9h"/>

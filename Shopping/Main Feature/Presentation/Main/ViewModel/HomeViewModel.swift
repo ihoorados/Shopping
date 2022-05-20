@@ -36,17 +36,16 @@ class HomeViewModelImpl{
         }
     }
 
-    fileprivate var viewModelSearchList: [ListTableViewModel] = []{
-
-        didSet{
-
-            self.tableViewDataSource.items = self.viewModelSearchList
-        }
-    }
-
     fileprivate var dataModel: [ListModel] = []
-
+    fileprivate var peresentableDataModel: [ListModel] = []
     fileprivate var tableViewDataSource: TableViewDataSource<ListTableViewCell, ListTableViewModel>!
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Public Properties
+    /* ////////////////////////////////////////////////////////////////////// */
+
+    var filterCategoriesModel: [Categories] = []
+
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding Properties
@@ -75,11 +74,8 @@ class HomeViewModelImpl{
             return
         }
 
-        let model = self.filterDataBy(categories: [.Books,.Sport])
+        let model = self.filterDataBy(string: text)
         self.updateListBy(model: model)
-
-//        let model = self.filterDataBy(string: text)
-//        self.updateListBy(model: model)
     }
 
     func loadDataFromServer(){
@@ -97,6 +93,9 @@ class HomeViewModelImpl{
 //
 //            self.handleRequestResult(result: result)
 //        }
+
+//        let model = self.filterDataBy(categories: [.books,.sport])
+//        self.updateListBy(model: model)
     }
 
     // Table View Data Source
@@ -109,6 +108,29 @@ class HomeViewModelImpl{
 
         return self.tableViewDataSource
     }
+
+    func filterDataBy(category: Categories, value: Bool){
+
+        if value && !filterCategoriesModel.contains(category){
+
+            self.filterCategoriesModel.append(category)
+        }else{
+
+            if let index = self.filterCategoriesModel.firstIndex(of: category) {
+                self.filterCategoriesModel.remove(at: index)
+            }
+        }
+
+        guard !self.filterCategoriesModel.isEmpty else {
+
+            self.loadDataFromServer()
+            return
+        }
+
+        let model = self.filterDataBy(categories: self.filterCategoriesModel)
+        self.updateListBy(model: model)
+    }
+
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Function
@@ -139,8 +161,6 @@ class HomeViewModelImpl{
         self.reloadTabelView.value = true
     }
 
-
-
     fileprivate func filterDataBy(string: String) -> [ListModel]{
 
         return dataModel.filter { $0.name.contains(string) }
@@ -154,5 +174,14 @@ class HomeViewModelImpl{
             list.append(contentsOf: dataModel.filter { $0.category.contains(category.rawValue) })
         }
         return list
+    }
+
+    fileprivate func sortDataByName(){
+
+
+    }
+
+    fileprivate func sortDataByPrice(){
+
     }
 }
