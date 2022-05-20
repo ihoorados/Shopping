@@ -15,6 +15,7 @@ struct ListModel {
     let price: String
     let image: String
 
+    /// Convert Json into List Model
     static func parser(json:JSON, category: String) -> ListModel{
 
         let data: JSON = json[category]
@@ -26,6 +27,7 @@ struct ListModel {
         return ListModel(name: name, category: category, price: doubleStr, image: image)
     }
 
+    /// Parse Json into [List Model]
     static func parsArray(json: JSON, category: String) -> [ListModel]{
 
         var array: [ListModel] = []
@@ -33,12 +35,10 @@ struct ListModel {
 
             return array
         }
-
         for item in items{
 
             array.append(ListModel.parser(json: item, category: category))
         }
-
         return array
     }
 }

@@ -68,9 +68,6 @@ class HomeViewModelImpl{
 
     func searchBarTextUpdatedWith(text: String){
 
-        self.viewModelSearchList = []
-        self.reloadTabelView.value = true
-
         guard !text.isEmpty else {
 
             self.viewModelList.removeAll()
@@ -78,9 +75,11 @@ class HomeViewModelImpl{
             return
         }
 
-        let candiesFiltered = self.viewModelList.filter{$0.nameString == text}
-        self.viewModelSearchList = candiesFiltered
-        self.reloadTabelView.value = true
+        let model = self.filterDataBy(categories: ["Books"])
+        self.updateListBy(model: model)
+
+//        let model = self.filterDataBy(string: text)
+//        self.updateListBy(model: model)
     }
 
     func loadDataFromServer(){
@@ -124,12 +123,32 @@ class HomeViewModelImpl{
                 print("Faild")
             case .success(let list):
 
-            var modelList: [ListTableViewModel] = []
-            for item in list{
-                modelList.append(ListTableViewModel(model: item))
-            }
-            self.viewModelList.append(contentsOf: modelList)
-            self.reloadTabelView.value = true
+                self.dataModel = list
+                self.updateListBy(model: list)
         }
+    }
+
+    fileprivate func updateListBy(model: [ListModel]){
+
+        self.viewModelList.removeAll()
+        var modelList: [ListTableViewModel] = []
+        for item in model{
+            modelList.append(ListTableViewModel(model: item))
+        }
+        self.viewModelList.append(contentsOf: modelList)
+        self.reloadTabelView.value = true
+    }
+
+
+
+    fileprivate func filterDataBy(string: String) -> [ListModel]{
+
+        return dataModel.filter { $0.name.contains(string) }
+    }
+
+    fileprivate func filterDataBy(categories: [String]) -> [ListModel]{
+
+        let model = dataModel.filter { $0.category.contains("Books") }
+        return model
     }
 }

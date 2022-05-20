@@ -92,18 +92,24 @@ struct ListRepositoryImpl: ListRepository {
 
     fileprivate func getMocklist() -> [ListModel]{
 
-        let model1 = ListModel(name: "Name 1", category: "books", price: "234.00", image: "")
-        let model2 = ListModel(name: "Name 2", category: "books", price: "334.00", image: "")
-        let model3 = ListModel(name: "Name 3", category: "books", price: "144.00", image: "")
-        let model4 = ListModel(name: "Name 4", category: "books", price: "37.00", image: "")
-        let model5 = ListModel(name: "Name 5", category: "books", price: "44.00", image: "")
+        let model1 = ListModel(name: "Francette", category: "Books", price: "234.00", image: "")
+        let model2 = ListModel(name: "Dinesh", category: "Books", price: "334.00", image: "")
+        let model3 = ListModel(name: "Willibald", category: "Books", price: "144.00", image: "")
+        let model4 = ListModel(name: "Brochfael", category: "Books", price: "37.00", image: "")
+        let model5 = ListModel(name: "Brice", category: "Books", price: "44.00", image: "")
 
-        let model6 = ListModel(name: "Name 5", category: "sports", price: "34.00", image: "")
-        let model7 = ListModel(name: "Name 5", category: "sports", price: "4234.00", image: "")
-        let model8 = ListModel(name: "Name 5", category: "sports", price: "434.00", image: "")
-        let model9 = ListModel(name: "Name 5", category: "sports", price: "434.5", image: "")
-        let model10 = ListModel(name: "Name 5", category: "sports", price: "44.00", image: "")
+        let model6 = ListModel(name: "Libitina", category: "Sports", price: "34.00", image: "")
+        let model7 = ListModel(name: "Jesús", category: "Sports", price: "4234.00", image: "")
+        let model8 = ListModel(name: "Tsubaki", category: "Sports", price: "434.00", image: "")
+        let model9 = ListModel(name: "Amrit", category: "Sports", price: "434.5", image: "")
+        let model10 = ListModel(name: "Nwanneka", category: "Sports", price: "44.00", image: "")
 
-        return [model1,model2,model3,model4,model5,model6,model7,model8,model9,model10]
+        let model11 = ListModel(name: "Selma", category: "Travel", price: "34.00", image: "")
+        let model12 = ListModel(name: "Mbali", category: "Travel", price: "4234.00", image: "")
+        let model13 = ListModel(name: "Alwin", category: "Travel", price: "434.00", image: "")
+        let model14 = ListModel(name: "Cibrán", category: "Travel", price: "434.5", image: "")
+        let model15 = ListModel(name: "John", category: "Travel", price: "44.00", image: "")
+
+        return [model1,model2,model3,model4,model5,model6,model7,model8,model9,model10,model11,model12,model13,model14,model15]
     }
 }
