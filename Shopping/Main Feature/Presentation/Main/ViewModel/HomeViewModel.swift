@@ -75,7 +75,7 @@ class HomeViewModelImpl{
             return
         }
 
-        let model = self.filterDataBy(categories: ["Books"])
+        let model = self.filterDataBy(categories: [.Books,.Sport])
         self.updateListBy(model: model)
 
 //        let model = self.filterDataBy(string: text)
@@ -146,9 +146,13 @@ class HomeViewModelImpl{
         return dataModel.filter { $0.name.contains(string) }
     }
 
-    fileprivate func filterDataBy(categories: [String]) -> [ListModel]{
+    fileprivate func filterDataBy(categories: [Categories]) -> [ListModel]{
 
-        let model = dataModel.filter { $0.category.contains("Books") }
-        return model
+        var list: [ListModel] = []
+        categories.forEach { category in
+
+            list.append(contentsOf: dataModel.filter { $0.category.contains(category.rawValue) })
+        }
+        return list
     }
 }
