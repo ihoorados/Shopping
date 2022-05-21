@@ -17,8 +17,21 @@ enum Categories : String{
     case other = "Other"
 }
 
+enum Sort : String{
+
+    case name = "Name"
+    case price = "Price"
+}
+
+
 struct FilterModel {
 
     var category: Categories
+    var value: Bool
+}
+
+struct SortModel {
+
+    var category: Sort
     var value: Bool
 }

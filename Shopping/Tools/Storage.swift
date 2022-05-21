@@ -16,51 +16,26 @@ class Storage{
     private init(){
 
 
+        // filterCategories
+        var filterCategories: [Categories] = []
+        if let data = UserDefaults.standard.object(forKey: "filterCategories") as? Data{
+
+            if let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Categories]{
+
+                filterCategories = value
+            }
+        }
+        self.filterCategories = filterCategories
     }
 
+    private(set) var filterCategories: [Categories]{
 
-//    func changeVisibiltyOfTileLayer(layer: DynamicTile, isVisable: Bool){
-//
-//        layer.isVisible = isVisable
-//        for tile in self.dynamicTiles{
-//
-//            if tile.nameId == layer.nameId{
-//
-//                tile.isVisible = isVisable
-//            }
-//        }
-//        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: self.dynamicTiles)
-//        UserDefaults.standard.set(encodedData, forKey: "dynamicTiles")
-//        UserDefaults.standard.synchronize()
-//    }
+        didSet{
 
-
-//    var isAvoidTrafficZone: Bool{
-//
-//        didSet{
-//
-//            UserDefaults.standard.set(self.isAvoidTrafficZone, forKey: "isAvoidTrafficZone")
-//            UserDefaults.standard.synchronize()
-//        }
-//    }
-//
-//    var isVisiableTrafficLayer: Bool{
-//
-//        didSet{
-//
-//            UserDefaults.standard.set(self.isVisiableTrafficLayer, forKey: "isVisiableTrafficLayer")
-//            UserDefaults.standard.synchronize()
-//        }
-//    }
-//
-//    var isVisiableMetroLayer: Bool{
-//
-//        didSet{
-//
-//            UserDefaults.standard.set(self.isVisiableMetroLayer, forKey: "isVisiableMetroLayer")
-//            UserDefaults.standard.synchronize()
-//        }
-//    }
-
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: self.filterCategories)
+            UserDefaults.standard.set(encodedData, forKey: "filterCategories")
+            UserDefaults.standard.synchronize()
+        }
+    }
 
 }

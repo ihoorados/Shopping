@@ -37,7 +37,7 @@ class HomeViewModelImpl{
     }
 
     fileprivate var dataModel: [ListModel] = []
-    fileprivate var peresentableDataModel: [ListModel] = []
+    fileprivate var presentableDataModel: [ListModel] = []
     fileprivate var tableViewDataSource: TableViewDataSource<ListTableViewCell, ListTableViewModel>!
 
     /* ////////////////////////////////////////////////////////////////////// */
@@ -45,7 +45,7 @@ class HomeViewModelImpl{
     /* ////////////////////////////////////////////////////////////////////// */
 
     var filterCategoriesModel: [Categories] = []
-
+    var sortModel: [Sort] = []
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding Properties
@@ -63,19 +63,6 @@ class HomeViewModelImpl{
         guard space == nil else { return }
         let router = HomeRouter(delegate: homeUIDelegate!, dataSource: nil)
         space = Shopping.startSpace(delegate: router)
-    }
-
-    func searchBarTextUpdatedWith(text: String){
-
-        guard !text.isEmpty else {
-
-            self.viewModelList.removeAll()
-            self.loadDataFromServer()
-            return
-        }
-
-        let model = self.filterDataBy(string: text)
-        self.updateListBy(model: model)
     }
 
     func loadDataFromServer(){
@@ -96,6 +83,19 @@ class HomeViewModelImpl{
 
 //        let model = self.filterDataBy(categories: [.books,.sport])
 //        self.updateListBy(model: model)
+    }
+
+    func searchBarTextUpdatedWith(text: String){
+
+        guard !text.isEmpty else {
+
+            self.viewModelList.removeAll()
+            self.loadDataFromServer()
+            return
+        }
+
+        let model = self.filterDataBy(string: text)
+        self.updateListBy(model: model)
     }
 
     // Table View Data Source
@@ -127,8 +127,9 @@ class HomeViewModelImpl{
             return
         }
 
-        let model = self.filterDataBy(categories: self.filterCategoriesModel)
-        self.updateListBy(model: model)
+        let model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
+        self.presentableDataModel = model
+        self.updateListBy(model: self.presentableDataModel)
     }
 
 
@@ -146,7 +147,10 @@ class HomeViewModelImpl{
             case .success(let list):
 
                 self.dataModel = list
-                self.updateListBy(model: list)
+                var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
+                self.presentableDataModel = model
+                model = self.sortDataBy(sort: self.sortModel)
+                self.updateListBy(model: model)
         }
     }
 
@@ -160,25 +164,37 @@ class HomeViewModelImpl{
         self.viewModelList.append(contentsOf: modelList)
         self.reloadTabelView.value = true
     }
+}
+
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: Filter & Sort
+/* ////////////////////////////////////////////////////////////////////// */
+
+extension HomeViewModelImpl{
 
     fileprivate func filterDataBy(string: String) -> [ListModel]{
 
-        return dataModel.filter { $0.name.contains(string) }
+        return presentableDataModel.filter { $0.name.contains(string) }
     }
 
-    fileprivate func filterDataBy(categories: [Categories]) -> [ListModel]{
+    fileprivate func filterDataBy(categories: [Categories], model: [ListModel]) -> [ListModel]{
+
+        guard !categories.isEmpty else {
+
+            return model
+        }
 
         var list: [ListModel] = []
         categories.forEach { category in
 
-            list.append(contentsOf: dataModel.filter { $0.category.contains(category.rawValue) })
+            list.append(contentsOf: model.filter { $0.category.contains(category.rawValue) })
         }
         return list
     }
 
-    fileprivate func sortDataByName(){
+    fileprivate func sortDataBy(sort: [Sort]) -> [ListModel]{
 
-
+        return self.presentableDataModel
     }
 
     fileprivate func sortDataByPrice(){

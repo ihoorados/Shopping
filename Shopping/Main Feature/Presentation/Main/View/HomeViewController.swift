@@ -200,7 +200,6 @@ extension HomeViewController: HomeUserInterface{
         self.setupUIEvent()
         self.setupDependency()
         self.BindingViewModel()
-
         self.viewModel.loadDataFromServer()
     }
 }
