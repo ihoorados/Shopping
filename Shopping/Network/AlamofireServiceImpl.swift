@@ -22,7 +22,7 @@ class AlamofireNetworkImpl: CoreNetworkService {
 
         var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         defaultHeaders["os"] = "iOS"
-        defaultHeaders["x-apikey"] = "05faea15185e5e30a73d8dac7a0efdf7b1115"
+        defaultHeaders["x-apikey"] = "9513a3c681bc11841e3ab249c8b59e438d693"
         defaultHeaders["cache-control"] = "no-cache"
 
         configuration.httpAdditionalHeaders = defaultHeaders

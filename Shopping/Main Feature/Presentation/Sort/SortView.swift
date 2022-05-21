@@ -8,11 +8,23 @@
 import Foundation
 import UIKit
 
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: SortView Output
+/* ////////////////////////////////////////////////////////////////////// */
+
+protocol SortViewOutput: AnyObject {
+
+    func sortDataBy(sort: Sort, value: Bool)
+}
+
+
 class SortView: UIView {
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
+
+    weak var delegate: SortViewOutput?
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -76,12 +88,46 @@ class SortView: UIView {
         self.removeUIControll.addTarget(self, action: #selector(self.removeUIControllAction), for: .touchUpInside)
     }
 
+    func updateSwitch(sort: Sort){
+
+        switch sort {
+        case .name:
+
+            self.sortNameSwitch.setOn(true, animated: true)
+            break
+        default:
+
+            self.sortPriceSwitch.setOn(true, animated: true)
+            break
+        }
+    }
+
     @objc func removeUIControllAction(_ sender: Any){
 
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .allowAnimatedContent) {
             self.alpha = 0
         }completion: { valid in
             self.removeFromSuperview()
+        }
+    }
+
+    @IBAction func switchsAction(_ sender: UIButton) {
+
+        switch sender {
+        case self.sortNameSwitch:
+
+            self.delegate?.sortDataBy(sort: .name, value: self.sortNameSwitch.isOn)
+            if self.sortNameSwitch.isOn{
+                self.sortPriceSwitch.setOn(false, animated: true)
+            }
+            break
+        default:
+
+            self.delegate?.sortDataBy(sort: .price, value: self.sortPriceSwitch.isOn)
+            if self.sortPriceSwitch.isOn{
+                self.sortNameSwitch.setOn(false, animated: true)
+            }
+            break
         }
     }
 }

@@ -48,7 +48,7 @@ class ListTableViewModel: BaseViewModel {
 
     var priceStiring: String{
 
-        return self.model.price
+        return String(self.model.price)
     }
 
     var imageStiring: String{

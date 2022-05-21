@@ -178,6 +178,8 @@ class HomeViewController: UIViewController {
     @objc func sortButtonAction(){
 
         let view = SortView(frame: self.view.frame)
+        view.updateSwitch(sort: self.viewModel.sortModel)
+        view.delegate = self
         self.addViewToViewController(view: view, navigation: .top)
     }
 
@@ -244,5 +246,17 @@ extension HomeViewController: FilterViewOutput{
     func filterDataBy(category: Categories, value: Bool) {
 
         self.viewModel.filterDataBy(category: category, value: value)
+    }
+}
+
+/* ////////////////////////////////////////////////////////////////////// */
+// MARK: SortView OutPut
+/* ////////////////////////////////////////////////////////////////////// */
+
+extension HomeViewController: SortViewOutput{
+
+    func sortDataBy(sort: Sort, value: Bool) {
+
+        self.viewModel.sortDataBy(sort: sort, value: value)
     }
 }

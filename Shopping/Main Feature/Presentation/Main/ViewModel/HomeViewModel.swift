@@ -45,7 +45,7 @@ class HomeViewModelImpl{
     /* ////////////////////////////////////////////////////////////////////// */
 
     var filterCategoriesModel: [Categories] = []
-    var sortModel: [Sort] = []
+    var sortModel: Sort = .name
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding Properties
@@ -132,6 +132,14 @@ class HomeViewModelImpl{
         self.updateListBy(model: self.presentableDataModel)
     }
 
+    func sortDataBy(sort: Sort, value: Bool){
+
+        self.sortModel = sort
+        let model = self.sortDataBy(sort: self.sortModel, model: self.presentableDataModel)
+        self.presentableDataModel = model
+        self.updateListBy(model: self.presentableDataModel)
+    }
+
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Function
@@ -141,15 +149,21 @@ class HomeViewModelImpl{
 
         switch result{
 
-            case .failure(let _):
+            case .failure(_):
 
+                // Show Error
                 print("Faild")
             case .success(let list):
 
+                // Fill Data Model
                 self.dataModel = list
+                self.presentableDataModel = list
+                // Update Data With Filter & Sort Options
                 var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
+                model = self.sortDataBy(sort: self.sortModel, model: self.presentableDataModel)
                 self.presentableDataModel = model
-                model = self.sortDataBy(sort: self.sortModel)
+
+                // Update List
                 self.updateListBy(model: model)
         }
     }
@@ -192,9 +206,17 @@ extension HomeViewModelImpl{
         return list
     }
 
-    fileprivate func sortDataBy(sort: [Sort]) -> [ListModel]{
+    fileprivate func sortDataBy(sort: Sort, model: [ListModel]) -> [ListModel]{
 
-        return self.presentableDataModel
+        var list: [ListModel] = []
+        if sort == .name{
+
+            list = self.presentableDataModel.sorted(by: { $0.name < $1.name })
+        }else if sort == .price{
+
+            list = self.presentableDataModel.sorted(by: { $0.price < $1.price })
+        }
+        return list
     }
 
     fileprivate func sortDataByPrice(){

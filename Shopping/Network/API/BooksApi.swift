@@ -19,7 +19,7 @@ struct BooksApi: NetworkEndPoint {
 
         var url: String
         self.server = server
-        url = "https://categories-6305.restdb.io/rest/list"
+        url = "https://shopping-ac8c.restdb.io/rest/books"
 
         self.url = url
     }
