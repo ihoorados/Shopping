@@ -120,24 +120,13 @@ class HomeViewModelImpl{
                 self.filterCategoriesModel.remove(at: index)
             }
         }
-
-        guard !self.filterCategoriesModel.isEmpty else {
-
-            self.loadDataFromServer()
-            return
-        }
-
-        let model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
-        self.presentableDataModel = model
-        self.updateListBy(model: self.presentableDataModel)
+        self.updateFilterdAndSortedData()
     }
 
     func sortDataBy(sort: Sort, value: Bool){
 
         self.sortModel = sort
-        let model = self.sortDataBy(sort: self.sortModel, model: self.presentableDataModel)
-        self.presentableDataModel = model
-        self.updateListBy(model: self.presentableDataModel)
+        self.updateFilterdAndSortedData()
     }
 
 
@@ -157,15 +146,20 @@ class HomeViewModelImpl{
 
                 // Fill Data Model
                 self.dataModel = list
-                self.presentableDataModel = list
-                // Update Data With Filter & Sort Options
-                var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
-                model = self.sortDataBy(sort: self.sortModel, model: self.presentableDataModel)
-                self.presentableDataModel = model
-
                 // Update List
-                self.updateListBy(model: model)
+                self.updateFilterdAndSortedData()
         }
+    }
+
+    fileprivate func updateFilterdAndSortedData() {
+
+        // Filter Data Model By Categories
+        var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
+        // Sort Data Model By Sort Type
+        model = self.sortDataBy(sort: self.sortModel, model: model)
+        // Update Presentable Model
+        self.presentableDataModel = model
+        self.updateListBy(model: self.presentableDataModel)
     }
 
     fileprivate func updateListBy(model: [ListModel]){
@@ -211,10 +205,10 @@ extension HomeViewModelImpl{
         var list: [ListModel] = []
         if sort == .name{
 
-            list = self.presentableDataModel.sorted(by: { $0.name < $1.name })
+            list = model.sorted(by: { $0.name < $1.name })
         }else if sort == .price{
 
-            list = self.presentableDataModel.sorted(by: { $0.price < $1.price })
+            list = model.sorted(by: { $0.price < $1.price })
         }
         return list
     }

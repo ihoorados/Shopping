@@ -17,18 +17,14 @@ struct BooksApi: NetworkEndPoint {
 
     init(server: ServerEndPint = .asia, text: String?) {
 
-        var url: String
         self.server = server
-        url = "https://shopping-ac8c.restdb.io/rest/books"
-
-        self.url = url
     }
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Public Properties
     /* ////////////////////////////////////////////////////////////////////// */
 
-    var url: String = ""
+    var url: String = "https://shopping-ac8c.restdb.io/rest/books"
     var server: ServerEndPint = .asia
     var Method: HTTPMethod = .get
     var Encoding: ParameterEncoding = URLEncoding.default
