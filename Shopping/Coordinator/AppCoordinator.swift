@@ -24,11 +24,25 @@ final class AppCoordinator: Coordinator {
 
     func start() {
 
-        let viewModel = HomeViewModelImpl()
-        let viewController = HomeViewController(viewModel: viewModel)
-        navigationController.viewControllers = [viewController]
+        // Composition Root
+
+        let loginVM = LoginViewModelImpl()
+        let LoginVC = LoginViewController(viewModel: loginVM)
+
+        navigationController.viewControllers = [LoginVC]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+
+        loginVM.completionSignIn = {
+
+            let viewModel = HomeViewModelImpl()
+            let viewController = HomeViewController(viewModel: viewModel)
+            self.navigationController.viewControllers = [viewController]
+            self.window.rootViewController = self.navigationController
+            self.window.makeKeyAndVisible()
+        }
+
+
     }
 
     private func onComplete() {
