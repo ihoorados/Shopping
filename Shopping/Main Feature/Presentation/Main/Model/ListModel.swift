@@ -20,7 +20,8 @@ struct ListModel {
 
         //let data: JSON = json[category]
 
-        let image: String = json["image"].string ?? ""
+        let imageArr: Array = json["image"].array ?? []
+        let image: String = imageArr.first?.stringValue ?? ""
         let price: Double = json["price"].double ?? 0.0
         let name: String = json["name"].string ?? ""
         let doubleStr = String(format: "%.2f", price)

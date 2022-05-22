@@ -28,6 +28,6 @@ struct BooksApi: NetworkEndPoint {
     var server: ServerEndPint = .asia
     var Method: HTTPMethod = .get
     var Encoding: ParameterEncoding = URLEncoding.default
-    var Parameters: Parameters = [:]
+    var Parameters: Parameters = ["name":"A"]
     var Headers: HTTPHeaders = [:]
 }

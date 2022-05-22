@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ListTableViewCell: UITableViewCell {
 
@@ -42,10 +43,11 @@ class ListTableViewCell: UITableViewCell {
             return
         }
         self.titleLabel.text = viewModel.nameString
-        self.categoryLabel.text = viewModel.categoryStiring
-        self.priceLabel.text = "\(viewModel.priceStiring) $"
+        self.categoryLabel.text = viewModel.categoryString
+        self.priceLabel.text = "\(viewModel.priceString) $"
         self.coverImageView.backgroundColor = .purple
         self.coverImageView.layer.cornerRadius = 8
+        self.coverImageView.sd_setImage(with: URL(string: viewModel.imageURL), placeholderImage: UIImage(named: "placeHolder"))
     }
     
 }

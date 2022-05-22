@@ -103,7 +103,23 @@ class HomeViewController: UIViewController {
                 self.resultTableView.reloadData()
             }
         }
+
+        // Show Allert View Controller
+        self.viewModel.cantConnectToServer.bind{ [weak self] (toupleSelector) in
+
+            guard let `self` = self, let selectors = toupleSelector else { return }
+
+            self.prepareAlertView(success: selectors.0, failure: selectors.1)
+        }
+
+        // Show Loader
+        self.viewModel.isShowLoader.bindAndFire({ [weak self] (isShow) in
+
+            guard let `self` = self else { return }
+
+        })
     }
+    
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Functions
@@ -164,7 +180,37 @@ class HomeViewController: UIViewController {
 
         self.filterButton.addTarget(self, action: #selector(self.filterButtonAction), for: .touchUpInside)
         self.sortButton.addTarget(self, action: #selector(self.sortButtonAction), for: .touchUpInside)
+    }
 
+    // Try Again Action
+    func prepareAlertView(success: Selector, failure: Selector?,
+                          title: String = "",
+                          text: String = "Faild to retrieve information",
+                          acceptButtonText: String = "Retry",
+                          cancelButtonText: String = "Cancel",
+                          isInViewModelSelector: Bool = true){
+
+        DispatchQueue.main.async { [weak self] in
+
+            guard let `self` = self else {return}
+
+            let controller = UIAlertController(title: title, message: text, preferredStyle: .alert)
+            let cancel: UIAlertAction = UIAlertAction(title: cancelButtonText, style: UIAlertAction.Style.default) { (action) in
+
+                controller.dismiss(animated: true, completion: nil)
+            }
+
+            let goToSetting: UIAlertAction = UIAlertAction(title: acceptButtonText, style: UIAlertAction.Style.cancel) { (action) in
+
+                self.viewModel.loadDataFromServer()
+            }
+
+            for a in [goToSetting, cancel] as [UIAlertAction]{
+
+                controller.addAction(a)
+            }
+            self.present(controller, animated: true, completion: nil)
+        }
     }
 
     @objc func filterButtonAction(){

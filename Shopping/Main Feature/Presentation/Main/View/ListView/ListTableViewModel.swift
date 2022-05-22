@@ -41,19 +41,19 @@ class ListTableViewModel: BaseViewModel {
         return self.model.name
     }
 
-    var categoryStiring: String{
+    var categoryString: String{
 
         return self.model.category
     }
 
-    var priceStiring: String{
+    var priceString: String{
 
         return String(self.model.price)
     }
 
-    var imageStiring: String{
+    var imageURL: String{
 
-        return self.model.image
+        return "https://rdb-simpledb.restdb.io/media/\(self.model.image)?s=t"
     }
 
 }

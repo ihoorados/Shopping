@@ -52,6 +52,9 @@ class HomeViewModelImpl{
     /* ////////////////////////////////////////////////////////////////////// */
 
     var reloadTabelView: Dynamic<Bool> = Dynamic<Bool>(false)
+    /// 0: Success, 1: Failure
+    var cantConnectToServer: Dynamic<(Selector, Selector?)?> = Dynamic<(Selector, Selector?)?>(nil)
+    var isShowLoader: Dynamic<Bool> = Dynamic<Bool>(false)
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Public Function
@@ -65,24 +68,21 @@ class HomeViewModelImpl{
         space = Shopping.startSpace(delegate: router)
     }
 
-    func loadDataFromServer(){
+    @objc func loadDataFromServer(){
 
-        self.repository.getList { result in
-            self.handleRequestResult(result: result)
-        }
-
-//        self.repository.getBooks(text: "text") { result in
-//
+//        self.repository.getList { result in
 //            self.handleRequestResult(result: result)
 //        }
+
+        self.repository.getBooks(text: "text") { result in
+
+            self.handleRequestResult(result: result)
+        }
 
 //        self.repository.getSports { result in
 //
 //            self.handleRequestResult(result: result)
 //        }
-
-//        let model = self.filterDataBy(categories: [.books,.sport])
-//        self.updateListBy(model: model)
     }
 
     func searchBarTextUpdatedWith(text: String){
@@ -141,7 +141,7 @@ class HomeViewModelImpl{
             case .failure(_):
 
                 // Show Error
-                print("Faild")
+                self.cantConnectToServer.value = (#selector(self.loadDataFromServer),nil)
             case .success(let list):
 
                 // Fill Data Model
