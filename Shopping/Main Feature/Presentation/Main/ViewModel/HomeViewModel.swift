@@ -46,6 +46,7 @@ class HomeViewModelImpl{
 
     var filterCategoriesModel: [Categories] = []
     var sortModel: Sort = .name
+    var searchString: String = ""
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding Properties
@@ -70,31 +71,23 @@ class HomeViewModelImpl{
 
     @objc func loadDataFromServer(){
 
-//        self.repository.getList { result in
-//            self.handleRequestResult(result: result)
-//        }
-
         self.repository.getGoods() { result in
 
             self.handleRequestResult(result: result)
         }
-
-//        self.repository.getSports { result in
-//
-//            self.handleRequestResult(result: result)
-//        }
     }
 
     func searchBarTextUpdatedWith(text: String){
 
+        self.searchString = text
         guard !text.isEmpty else {
 
             self.viewModelList.removeAll()
-            self.loadDataFromServer()
+            self.updateFilterdAndSortedData()
             return
         }
 
-        let model = self.filterDataBy(string: text)
+        let model = self.filterDataBy(text: text, model: self.presentableDataModel)
         self.updateListBy(model: model)
     }
 
@@ -157,8 +150,11 @@ class HomeViewModelImpl{
         var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
         // Sort Data Model By Sort Type
         model = self.sortDataBy(sort: self.sortModel, model: model)
+        // Filter Data By String
+        model = self.filterDataBy(text: self.searchString, model: model)
         // Update Presentable Model
         self.presentableDataModel = model
+        // Update TableView List
         self.updateListBy(model: self.presentableDataModel)
     }
 
@@ -180,9 +176,13 @@ class HomeViewModelImpl{
 
 extension HomeViewModelImpl{
 
-    fileprivate func filterDataBy(string: String) -> [ListModel]{
+    fileprivate func filterDataBy(text: String, model: [ListModel]) -> [ListModel]{
 
-        return presentableDataModel.filter { $0.name.contains(string) }
+        guard !text.isEmpty else {
+
+            return model
+        }
+        return model.filter { $0.name.contains(text) }
     }
 
     fileprivate func filterDataBy(categories: [Categories], model: [ListModel]) -> [ListModel]{
