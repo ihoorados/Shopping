@@ -16,24 +16,31 @@ class Storage{
     private init(){
 
 
-        // filterCategories
-        var filterCategories: [Categories] = []
-        if let data = UserDefaults.standard.object(forKey: "filterCategories") as? Data{
+        // User
+        var user: User? = nil
+        if let data = UserDefaults.standard.object(forKey: "user") as? Data{
 
-            if let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Categories]{
+            if let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? User{
 
-                filterCategories = value
+                user = value
             }
         }
-        self.filterCategories = filterCategories
+        self.user = user
     }
 
-    private(set) var filterCategories: [Categories]{
+    var user: User?{
 
         didSet{
 
-            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: self.filterCategories)
-            UserDefaults.standard.set(encodedData, forKey: "filterCategories")
+            if let user = self.user{
+
+                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: user)
+                UserDefaults.standard.set(encodedData, forKey: "user")
+            }else{
+
+                UserDefaults.standard.removeObject(forKey: "user")
+            }
+
             UserDefaults.standard.synchronize()
         }
     }

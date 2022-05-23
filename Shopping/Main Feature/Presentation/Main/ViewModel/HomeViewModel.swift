@@ -89,7 +89,7 @@ class HomeViewModelImpl{
             return
         }
 
-        let model = self.filterDataBy(text: text, model: self.presentableDataModel)
+        let model = ListModel.filterDataBy(text: text, model: self.presentableDataModel)
         self.updateListBy(model: model)
     }
 
@@ -149,11 +149,11 @@ class HomeViewModelImpl{
     fileprivate func updateFilterdAndSortedData() {
 
         // Filter Data Model By Categories
-        var model = self.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
+        var model = ListModel.filterDataBy(categories: self.filterCategoriesModel, model: self.dataModel)
         // Sort Data Model By Sort Type
-        model = self.sortDataBy(sort: self.sortModel, model: model)
+        model = ListModel.sortDataBy(sort: self.sortModel, model: model)
         // Filter Data By String
-        model = self.filterDataBy(text: self.searchString, model: model)
+        model = ListModel.filterDataBy(text: self.searchString, model: model)
         // Update Presentable Model
         self.presentableDataModel = model
         // Update TableView List
@@ -169,53 +169,5 @@ class HomeViewModelImpl{
         }
         self.viewModelList.append(contentsOf: modelList)
         self.reloadTabelView.value = true
-    }
-}
-
-/* ////////////////////////////////////////////////////////////////////// */
-// MARK: Filter & Sort
-/* ////////////////////////////////////////////////////////////////////// */
-
-extension HomeViewModelImpl{
-
-    fileprivate func filterDataBy(text: String, model: [ListModel]) -> [ListModel]{
-
-        guard !text.isEmpty else {
-
-            return model
-        }
-        return model.filter { $0.name.contains(text) }
-    }
-
-    fileprivate func filterDataBy(categories: [Categories], model: [ListModel]) -> [ListModel]{
-
-        guard !categories.isEmpty else {
-
-            return model
-        }
-
-        var list: [ListModel] = []
-        categories.forEach { category in
-
-            list.append(contentsOf: model.filter { $0.category.contains(category.rawValue) })
-        }
-        return list
-    }
-
-    fileprivate func sortDataBy(sort: Sort, model: [ListModel]) -> [ListModel]{
-
-        var list: [ListModel] = []
-        if sort == .name{
-
-            list = model.sorted(by: { $0.name < $1.name })
-        }else if sort == .price{
-
-            list = model.sorted(by: { $0.price < $1.price })
-        }
-        return list
-    }
-
-    fileprivate func sortDataByPrice(){
-
     }
 }

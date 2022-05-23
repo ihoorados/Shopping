@@ -109,4 +109,44 @@ struct ListModel {
 
         return array
     }
+
+
+    static func filterDataBy(text: String, model: [ListModel]) -> [ListModel]{
+
+        guard !text.isEmpty else {
+
+            return model
+        }
+        return model.filter { $0.name.contains(text) }
+    }
+
+    static func filterDataBy(categories: [Categories], model: [ListModel]) -> [ListModel]{
+
+        guard !categories.isEmpty else {
+
+            return model
+        }
+
+        var list: [ListModel] = []
+        categories.forEach { category in
+
+            list.append(contentsOf: model.filter { $0.category.contains(category.rawValue) })
+        }
+        return list
+    }
+
+    static func sortDataBy(sort: Sort, model: [ListModel]) -> [ListModel]{
+
+        var list: [ListModel] = []
+        if sort == .name{
+
+            list = model.sorted(by: { $0.name < $1.name })
+        }else if sort == .price{
+
+            list = model.sorted(by: { $0.price < $1.price })
+        }
+        return list
+    }
+
+    
 }
