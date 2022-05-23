@@ -11,7 +11,7 @@ import Alamofire
 
 protocol ListRepository {
 
-    func getList(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void)
+    func getGoods(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void)
     func getBooks(text: String, complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void)
     func getSports(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void)
 }
@@ -85,10 +85,30 @@ struct ListRepositoryImpl: ListRepository {
         }
     }
 
-    func getList(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void) {
+    func getGoods(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void) {
 
-        complation(.success(getMocklist()))
+        let endPoint = GoodsApi.init()
+
+        service.request(endPoint: endPoint) { result in
+
+            switch result{
+
+                case .failure(let err):
+
+                    complation(.failure(err))
+                case .success(let data):
+
+                    guard let json = self.tools.makeJSON(data: data) else {
+
+                        complation(.failure(.decodingFailed))
+                        return
+                    }
+                let model = ListModel.parsAllGoods(json: json)
+                complation(.success(model))
+            }
+        }
     }
+
 
     fileprivate func getMocklist() -> [ListModel]{
 

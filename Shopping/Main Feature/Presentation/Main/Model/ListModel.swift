@@ -42,4 +42,71 @@ struct ListModel {
         }
         return array
     }
+
+
+    /// Parse Json into [List Model]
+    static func parsAllGoods(json: JSON) -> [ListModel]{
+
+        //print(json)
+
+        var array: [ListModel] = []
+
+        guard let items = json.array else {
+
+            return array
+        }
+
+        for item in items {
+
+            if let data: Array = item["books"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Books"))
+                }
+            }
+
+            if let data: Array = item["music"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Music"))
+                }
+            }
+
+            if let data: Array = item["travel"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Travel"))
+                }
+            }
+
+            if let data: Array = item["sport"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Sport"))
+                }
+            }
+
+            if let data: Array = item["electronics"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Electronics"))
+                }
+            }
+
+            if let data: Array = item["other"].array{
+
+                for item in data{
+
+                    array.append(ListModel.parser(json: item, category: "Other"))
+                }
+            }
+        }
+
+        return array
+    }
 }

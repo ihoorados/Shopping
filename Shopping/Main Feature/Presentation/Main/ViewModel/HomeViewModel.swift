@@ -74,7 +74,7 @@ class HomeViewModelImpl{
 //            self.handleRequestResult(result: result)
 //        }
 
-        self.repository.getBooks(text: "text") { result in
+        self.repository.getGoods() { result in
 
             self.handleRequestResult(result: result)
         }
