@@ -9,7 +9,25 @@ import Foundation
 import UIKit
 
 
-class HomeViewModelImpl{
+protocol HomeViewModel {
+
+    var reloadTabelView: Dynamic<Bool> { get set }
+    var cantConnectToServer: Dynamic<(Selector, Selector?)?> { get set }
+    var isShowLoader: Dynamic<Bool> { get set }
+    var homeUIDelegate: HomeUserInterface? { get set }
+    var filterCategoriesModel: [Categories] { get set }
+    var sortModel: Sort { get set }
+
+    func startHomeSpace(host: HomeViewController)
+    func searchBarTextUpdatedWith(text: String)
+    func loadDataFromServer()
+    func getTabelViewDataSource(identifier: String) -> UITableViewDataSource
+    func filterDataBy(category: Categories, value: Bool)
+    func sortDataBy(sort: Sort, value: Bool)
+}
+
+
+class HomeViewModelImpl: HomeViewModel{
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Dependency Injection
@@ -39,6 +57,7 @@ class HomeViewModelImpl{
     fileprivate var dataModel: [ListModel] = []
     fileprivate var presentableDataModel: [ListModel] = []
     fileprivate var tableViewDataSource: TableViewDataSource<ListTableViewCell, ListTableViewModel>!
+    fileprivate var searchString: String = ""
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Public Properties
@@ -46,7 +65,6 @@ class HomeViewModelImpl{
 
     var filterCategoriesModel: [Categories] = []
     var sortModel: Sort = .name
-    var searchString: String = ""
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding Properties

@@ -18,9 +18,9 @@ class HomeViewController: UIViewController {
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
 
-    let viewModel: HomeViewModelImpl
+    var viewModel: HomeViewModel
 
-    init(viewModel: HomeViewModelImpl) {
+    init(viewModel: HomeViewModel) {
         
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
