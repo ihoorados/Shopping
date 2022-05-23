@@ -71,8 +71,10 @@ class HomeViewModelImpl{
 
     @objc func loadDataFromServer(){
 
+        self.isShowLoader.value = true
         self.repository.getGoods() { result in
 
+            self.isShowLoader.value = false
             self.handleRequestResult(result: result)
         }
     }

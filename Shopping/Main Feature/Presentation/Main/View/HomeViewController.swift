@@ -90,6 +90,13 @@ class HomeViewController: UIViewController {
         return button
     }()
 
+    lazy var loaderView: LoadingViewImpl = {
+
+        let view = LoadingViewImpl()
+        return view
+    }()
+
+
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding View Model
     /* ////////////////////////////////////////////////////////////////////// */
@@ -116,7 +123,7 @@ class HomeViewController: UIViewController {
         self.viewModel.isShowLoader.bindAndFire({ [weak self] (isShow) in
 
             guard let `self` = self else { return }
-
+            self.showLoader(isShow: isShow)
         })
     }
     
@@ -180,6 +187,20 @@ class HomeViewController: UIViewController {
 
         self.filterButton.addTarget(self, action: #selector(self.filterButtonAction), for: .touchUpInside)
         self.sortButton.addTarget(self, action: #selector(self.sortButtonAction), for: .touchUpInside)
+    }
+
+
+    fileprivate func showLoader(isShow: Bool){
+
+        if isShow{
+            self.view.addSubview(loaderView)
+            self.loaderView.anchor(width: 200, height: 100, cornerRadius: 12.0)
+            self.loaderView.centerX(inView: self.view)
+            self.loaderView.centerY(inView: self.view)
+        }else{
+
+            self.loaderView.removeFromSuperview()
+        }
     }
 
     // Try Again Action
