@@ -16,6 +16,8 @@ final class AppCoordinator: Coordinator {
 
     private let window: UIWindow
     private let navigationController: UINavigationController
+    private let storage = Storage.shared
+
 
     init(window: UIWindow) {
         self.window = window
@@ -25,24 +27,33 @@ final class AppCoordinator: Coordinator {
     func start() {
 
         // Composition Root
+        if storage.isAuthenticated{
+            self.openHomeView()
+        }else{
+            self.openAthenticationView()
+        }
+    }   
+
+    fileprivate func openAthenticationView(){
 
         let loginVM = LoginViewModelImpl()
         let LoginVC = LoginViewController(viewModel: loginVM)
+        loginVM.completionSignIn = {
 
+            self.openHomeView()
+        }
         navigationController.viewControllers = [LoginVC]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
+    }
 
-        loginVM.completionSignIn = {
+    fileprivate func openHomeView(){
 
-            let viewModel = HomeViewModelImpl()
-            let viewController = HomeViewController(viewModel: viewModel)
-            self.navigationController.viewControllers = [viewController]
-            self.window.rootViewController = self.navigationController
-            self.window.makeKeyAndVisible()
-        }
-
-
+        let viewModel = HomeViewModelImpl()
+        let viewController = HomeViewController(viewModel: viewModel)
+        self.navigationController.viewControllers = [viewController]
+        self.window.rootViewController = self.navigationController
+        self.window.makeKeyAndVisible()
     }
 
     private func onComplete() {

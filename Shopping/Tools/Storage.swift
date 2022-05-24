@@ -16,31 +16,20 @@ class Storage{
     private init(){
 
 
-        // User
-        var user: User? = nil
-        if let data = UserDefaults.standard.object(forKey: "user") as? Data{
+        // is Authenticated User
+        var isAuthenticated: Bool = false
+        if let value = UserDefaults.standard.object(forKey: "isAuthenticated") as? Bool{
 
-            if let value = NSKeyedUnarchiver.unarchiveObject(with: data) as? User{
-
-                user = value
-            }
+            isAuthenticated = value
         }
-        self.user = user
+        self.isAuthenticated = isAuthenticated
     }
 
-    var user: User?{
+    var isAuthenticated: Bool{
 
         didSet{
 
-            if let user = self.user{
-
-                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: user)
-                UserDefaults.standard.set(encodedData, forKey: "user")
-            }else{
-
-                UserDefaults.standard.removeObject(forKey: "user")
-            }
-
+            UserDefaults.standard.set(self.isAuthenticated, forKey: "isAuthenticated")
             UserDefaults.standard.synchronize()
         }
     }

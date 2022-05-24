@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
 
     let cellIdentifire = "ListTableViewCell"
     lazy var resultTableView : UITableView = {
+
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear

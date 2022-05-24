@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     // MARK: Dependency Injection
     /* ////////////////////////////////////////////////////////////////////// */
 
-    let viewModel: LoginViewModelImpl
+    let viewModel: LoginViewModel
 
-    init(viewModel: LoginViewModelImpl) {
+    init(viewModel: LoginViewModel) {
 
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -42,8 +42,8 @@ class LoginViewController: UIViewController {
     /* ////////////////////////////////////////////////////////////////////// */
 
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var userNameTextFeild: UIButton!
-    @IBOutlet weak var passWordTextFeild: UIButton!
+    @IBOutlet weak var userNameTextFeild: UITextField!
+    @IBOutlet weak var passWordTextFeild: UITextField!
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Private Function
@@ -61,7 +61,18 @@ class LoginViewController: UIViewController {
 
     @objc func signInButtonAction(){
 
-        self.viewModel.completionSignIn?()
+        guard let userName = self.userNameTextFeild.text else {
+
+            // Show Error
+            return
+        }
+
+        guard let passWord = self.passWordTextFeild.text else {
+
+            // Show Error
+            return
+        }
+        self.viewModel.authenticatedWith(userName: userName, passWord: passWord)
     }
 
 }

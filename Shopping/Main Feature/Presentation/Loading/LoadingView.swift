@@ -43,7 +43,7 @@ class LoadingViewImpl: UIView {
 
     lazy var activityIndicator: UIActivityIndicatorView = {
 
-        let ac = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        let ac = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         ac.tintColor = .gray
         return ac
     }()

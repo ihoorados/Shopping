@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Shopping" customModuleProvider="target">
             <connections>
+                <outlet property="passWordTextFeild" destination="1TZ-Do-nSR" id="WIM-kK-o6P"/>
                 <outlet property="signInButton" destination="JdA-rZ-b2T" id="U1S-bf-euO"/>
+                <outlet property="userNameTextFeild" destination="Pzj-YX-xFz" id="C1A-KD-dW4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
