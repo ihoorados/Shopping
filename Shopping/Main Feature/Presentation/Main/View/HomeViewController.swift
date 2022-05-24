@@ -97,6 +97,12 @@ class HomeViewController: UIViewController {
         return view
     }()
 
+    lazy var refreshControl: UIRefreshControl = {
+
+        let refreshControl = UIRefreshControl()
+        return refreshControl
+    }()
+
 
     /* ////////////////////////////////////////////////////////////////////// */
     // MARK: Binding View Model
@@ -139,6 +145,7 @@ class HomeViewController: UIViewController {
         self.view.addSubview(sortButton)
         self.view.addSubview(filterButton)
         self.view.addSubview(resultTableView)
+        self.resultTableView.refreshControl = self.refreshControl
         self.searchBar.placeholder = "Search"
 
         self.resultTableView.register(UINib(nibName: String(describing: ListTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ListTableViewCell.self))
@@ -188,6 +195,7 @@ class HomeViewController: UIViewController {
 
         self.filterButton.addTarget(self, action: #selector(self.filterButtonAction), for: .touchUpInside)
         self.sortButton.addTarget(self, action: #selector(self.sortButtonAction), for: .touchUpInside)
+        self.refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
     }
 
 
@@ -201,6 +209,7 @@ class HomeViewController: UIViewController {
         }else{
 
             self.loaderView.removeFromSuperview()
+            self.refreshControl.endRefreshing()
         }
     }
 
@@ -249,6 +258,12 @@ class HomeViewController: UIViewController {
         view.updateSwitch(sort: self.viewModel.sortModel)
         view.delegate = self
         self.addViewToViewController(view: view, navigation: .top)
+    }
+
+    @objc private func refreshWeatherData(_ sender: Any) {
+
+        // Fetch Data
+        self.viewModel.loadDataFromServer()
     }
 
 }

@@ -60,12 +60,14 @@ class LoadingViewImpl: UIView {
         self.addSubview(self.titleLabel)
         self.addSubview(self.activityIndicator)
         self.backgroundColor = .white
-        self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1.0
         self.layer.shadowOffset = CGSize(width: 5,
                                           height: 5)
+        self.layer.shadowColor = UIColor.lightGray.cgColor
         self.layer.shadowRadius = 2
         self.layer.shadowOpacity = 0.3
+        self.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
     }
 
     fileprivate func setupUILayout(){
