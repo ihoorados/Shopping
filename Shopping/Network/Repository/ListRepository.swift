@@ -87,8 +87,10 @@ struct ListRepositoryImpl: ListRepository {
 
     func getGoods(complation: @escaping (Swift.Result<[ListModel], NetworkError>) -> Void) {
 
-        let endPoint = GoodsApi.init()
+        // If You Want Check List With Local Mock Data
+        // complation(.success(getMocklist()))
 
+        let endPoint = GoodsApi.init()
         service.request(endPoint: endPoint) { result in
 
             switch result{
@@ -110,6 +112,7 @@ struct ListRepositoryImpl: ListRepository {
     }
 
 
+    // Mock List
     fileprivate func getMocklist() -> [ListModel]{
 
         let model1 = ListModel(name: "Francette", category: "Books", price: 234.00, image: "")
