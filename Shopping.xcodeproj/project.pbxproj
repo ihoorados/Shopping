@@ -195,10 +195,7 @@
 		70611F302835ABDD003F60A4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				707CAE87283A981E0010A282 /* Loading */,
 				707CAE7E2839DC6D0010A282 /* Login */,
-				70611F5E28370C34003F60A4 /* Sort */,
-				70611F572836FC79003F60A4 /* Filter */,
 				70611F562836FC70003F60A4 /* Main */,
 			);
 			path = Presentation;
@@ -316,10 +313,9 @@
 		707CAE7E2839DC6D0010A282 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				707CAE812839DCA80010A282 /* LogingViewModel.swift */,
-				707CAE832839E0150010A282 /* LoginViewController.swift */,
-				707CAE842839E0150010A282 /* LoginViewController.xib */,
-				70D0F397283C4E5500D387FF /* UserModel.swift */,
+				70D0F39C283DA9C000D387FF /* ViewModel */,
+				70D0F39B283DA9BB00D387FF /* View */,
+				70D0F39A283DA9B400D387FF /* Model */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -361,6 +357,7 @@
 				70611F3B2835C421003F60A4 /* Binding */,
 				70611F382835BEF9003F60A4 /* Extension */,
 				70611F192835A427003F60A4 /* Network */,
+				70D0F399283DA8AA00D387FF /* UIComponent */,
 				70B765EF28359D3A00605F28 /* Main Feature */,
 				70B765EC28359D1500605F28 /* Coordinator */,
 				70B765B92835955700605F28 /* AppDelegate.swift */,
@@ -409,6 +406,41 @@
 				70611F362835AC97003F60A4 /* Space.swift */,
 			);
 			path = "Main Feature";
+			sourceTree = "<group>";
+		};
+		70D0F399283DA8AA00D387FF /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				707CAE87283A981E0010A282 /* Loading */,
+				70611F5E28370C34003F60A4 /* Sort */,
+				70611F572836FC79003F60A4 /* Filter */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		70D0F39A283DA9B400D387FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				70D0F397283C4E5500D387FF /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		70D0F39B283DA9BB00D387FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				707CAE832839E0150010A282 /* LoginViewController.swift */,
+				707CAE842839E0150010A282 /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		70D0F39C283DA9C000D387FF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				707CAE812839DCA80010A282 /* LogingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9F7620E7BFEF7639FC92051C /* Frameworks */ = {

@@ -14,15 +14,23 @@ protocol Coordinator {
 
 final class AppCoordinator: Coordinator {
 
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Dependency Injection
+    /* ////////////////////////////////////////////////////////////////////// */
+
     private let window: UIWindow
     private let navigationController: UINavigationController
     private let storage = Storage.shared
 
-
     init(window: UIWindow) {
+
         self.window = window
-        navigationController = UINavigationController()
+        self.navigationController = UINavigationController()
     }
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Public Function
+    /* ////////////////////////////////////////////////////////////////////// */
 
     func start() {
 
@@ -32,7 +40,11 @@ final class AppCoordinator: Coordinator {
         }else{
             self.openAthenticationView()
         }
-    }   
+    }
+
+    /* ////////////////////////////////////////////////////////////////////// */
+    // MARK: Private Functions
+    /* ////////////////////////////////////////////////////////////////////// */
 
     fileprivate func openAthenticationView(){
 
@@ -56,7 +68,4 @@ final class AppCoordinator: Coordinator {
         self.window.makeKeyAndVisible()
     }
 
-    private func onComplete() {
-        // TODO: Complete/Initiate Process here
-    }
 }
